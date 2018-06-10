@@ -9,9 +9,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pageObjects.InsightsPage;
 
 public class Steps {
 	private static WebDriver driver;
+	InsightsPage insightsPage;
 	
 	@Given("^the user is on the homepage$")
 	public void the_user_is_on_the_homepage() throws Throwable {
@@ -27,7 +29,9 @@ public class Steps {
 
 	@When("^the user enters a search term into the Insights Keywords field$")
 	public void the_user_enters_a_search_term_into_the_Insights_Keywords_field() throws Throwable {
-		driver.findElement(By.xpath("/html/body/div[4]/div/div/div[1]/div/div[1]/div[1]/input")).sendKeys("Paul");
+		//driver.findElement(By.xpath("/html/body/div[4]/div/div/div[1]/div/div[1]/div[1]/input")).sendKeys("Paul");
+		insightsPage.insight_Keyword("Paul");
+		
 	}
 
 	@When("^filtered Insights articles appear$")
