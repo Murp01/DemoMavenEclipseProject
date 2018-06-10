@@ -7,6 +7,6 @@ Scenario: Register to an event
 	When the user enters a search term into the events search widget
 	And clicks view more on an event box
 	And clicks register
-	Then the user will be registered to the event
+	Then then the user is registered to the eventt
 
 
