@@ -29,8 +29,13 @@ public class Steps {
 
 	@When("^the user enters a search term into the Insights Keywords field$")
 	public void the_user_enters_a_search_term_into_the_Insights_Keywords_field() throws Throwable {
-		//driver.findElement(By.xpath("/html/body/div[4]/div/div/div[1]/div/div[1]/div[1]/input")).sendKeys("Paul");
-		insightsPage.insight_Keyword("Paul");
+/*		driver.findElement(By.xpath("/html/body/div[4]/div/div/div[1]/div/div[1]/div[1]/input")).click();
+		driver.findElement(By.xpath("/html/body/div[4]/div/div/div[1]/div/div[1]/div[1]/input")).clear();
+		driver.findElement(By.xpath("/html/body/div[4]/div/div/div[1]/div/div[1]/div[1]/input")).sendKeys("Paul");*/
+		insightsPage = new InsightsPage(driver);
+		insightsPage.insight_KeywordClick();
+		insightsPage.insight_KeywordClearText();
+		insightsPage.insight_KeywordEnterText("Paul");
 		
 	}
 
@@ -47,7 +52,7 @@ public class Steps {
 	@Then("^Insight article detail page opens$")
 	public void insight_article_detail_page_opens() throws Throwable {
 		System.out.println("Hello Articles detail page");
-		driver.quit();
+		//driver.quit();
 	}
 
 }
