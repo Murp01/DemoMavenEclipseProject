@@ -37,7 +37,8 @@ public class InsightsPage {
 	}
 	
 	
-	
+/*	Method created using the POM methods above.  Multiple methods can be added to a method to create some 
+	sort of supermethod of the likes the world has not seen before*/
 	public void clickClearInsightKeywordBox(){
 		TxtBox_Keyword.click();
 		TxtBox_Keyword.clear();
