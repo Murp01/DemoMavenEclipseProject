@@ -11,13 +11,14 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pageObjects.InsightsPage;
 
-public class Steps {
-	private static WebDriver driver;
+public class Steps extends AbstractPageStepDefinition{
+	//private static WebDriver driver;
+	WebDriver driver = getDriver();
 	InsightsPage insightsPage;
 	
 	@Given("^the user is on the homepage$")
 	public void the_user_is_on_the_homepage() throws Throwable {
-		driver = new FirefoxDriver();		
+		//driver = new FirefoxDriver();		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);		
 		driver.get("https://www.linklaters.com/");
 	}
@@ -27,16 +28,11 @@ public class Steps {
 		driver.findElement(By.xpath("/html/body/header/div/div/div/ul/li[6]/a")).click();
 	}
 
-	@When("^the user enters a search term into the Insights Keywords field$")
-	public void the_user_enters_a_search_term_into_the_Insights_Keywords_field() throws Throwable {
-		insightsPage = new InsightsPage(driver);
-		insightsPage.clickClearInsightKeywordBox();
-		insightsPage.insight_KeywordEnterText("Paul");	
-	}
+
 
 	@When("^filtered Insights articles appear$")
 	public void filtered_Insights_articles_appear() throws Throwable {
-		System.out.println("Hello Insights article appears");
+		
 	}
 
 	@When("^clicks Read More on Insights article$")

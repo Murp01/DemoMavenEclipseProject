@@ -17,8 +17,11 @@ public class InsightsPage {
 
 /*	The FindBy method is used to create an object of a page element of the webpage.  The page object below
 	is named TxtBox_Keyword*/	
-	@FindBy(how = How.XPATH, xpath ="/html/body/div[4]/div/div/div[1]/div/div[1]/div[1]/input")
+	@FindBy(how = How.XPATH, xpath ="/html/body/div[4]/div/div/div[1]/div/form/div[1]/input")
 	private WebElement TxtBox_Keyword;
+	
+	@FindBy(how = How.XPATH, xpath = "/html/body/div[4]/div/div/div[2]/div")
+	private WebElement eventsReturned;
 
 	
 /*	Below I have created methods that will use the objects created above.  These can be called from other
@@ -36,12 +39,22 @@ public class InsightsPage {
 		TxtBox_Keyword.click();
 	}
 	
+	public void insight_KeywordDisplay(){
+		boolean status = TxtBox_Keyword.isDisplayed();
+		System.out.println(status);
+	}
+	
+	public void insight_eventsSearchResults(){
+		
+	}
+	
 	
 /*	Method created using the POM methods above.  Multiple methods can be added to a method to create some 
 	sort of supermethod of the likes the world has not seen before*/
 	public void clickClearInsightKeywordBox(){
-		TxtBox_Keyword.click();
-		TxtBox_Keyword.clear();
+		insight_KeywordDisplay();
+		insight_KeywordClick();
+		insight_KeywordClearText();
 	}
 	
 	
