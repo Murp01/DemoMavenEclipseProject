@@ -20,7 +20,9 @@ public class SD_Insights extends AbstractPageStepDefinition {
 	
 	@When("^filtered Insights articles appear$")
 	public void filtered_Insights_articles_appear() throws Throwable {
-		
+		insightsPage = new InsightsPage(driver);
+		//insightsPage.insight_eventsSearchResults();
+		System.out.println("Filtered article appears");
 	}
 
 	@When("^clicks Read More on Insights article$")

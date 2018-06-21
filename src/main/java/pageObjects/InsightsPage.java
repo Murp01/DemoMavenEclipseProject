@@ -17,10 +17,10 @@ public class InsightsPage {
 
 /*	The FindBy method is used to create an object of a page element of the webpage.  The page object below
 	is named TxtBox_Keyword*/	
-	@FindBy(how = How.XPATH, xpath ="/html/body/div[4]/div/div/div[1]/div/form/div[1]/input")
+	@FindBy(how = How.XPATH, xpath ="//div[@class='inputOne']/input[@name='searchTerm']")
 	private WebElement TxtBox_Keyword;
 	
-	@FindBy(how = How.XPATH, xpath = "/html/body/div[4]/div/div/div[2]/div")
+	@FindBy(how = How.XPATH, xpath = "//div[@class='card card--flex width-50 result-item']")
 	private WebElement eventsReturned;
 
 	
@@ -45,6 +45,13 @@ public class InsightsPage {
 	}
 	
 	public void insight_eventsSearchResults(){
+		if (eventsReturned.isDisplayed() == true){
+			System.out.println("Hey it appeared");
+		}
+		else {
+			System.out.println("Where is it?");
+		}
+		
 		
 	}
 	
