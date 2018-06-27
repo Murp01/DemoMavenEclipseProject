@@ -76,5 +76,13 @@ public class SD_Common extends AbstractPageStepDefinition{
 	public void assert_that_the_url_contains(String title) throws Throwable {
 		Assert.assertTrue(driver.getTitle().contains(title));
 	}
+	
+	
+	@Given("^hovers over the insights title and selects publications$")
+	public void hovers_over_the_insights_title_and_selects_publications() throws Throwable {
+		Actions action = new Actions(driver);
+		action.moveToElement(driver.findElement(By.xpath("/html/body/header/div/div/div/ul/li[6]/a"))).click().build().perform();
+		driver.findElement(By.xpath("/html/body/nav/div/div[6]/ul[3]/li/a")).click();
+	}
 
 }
