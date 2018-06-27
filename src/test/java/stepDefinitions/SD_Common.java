@@ -45,6 +45,37 @@ public class SD_Common extends AbstractPageStepDefinition{
 		Assert.assertTrue("SearchBox opened", searchBox.isDisplayed());
 	}
 	
+	
+	@Given("^hovers over the About Us title and selects \"([^\"]*)\"$")
+	public void hovers_over_the_About_Us_title_and_selects(String link) throws Throwable {
+		switch(link) {
+		case "Alumni":
+			Actions action = new Actions(driver);
+			action.moveToElement(driver.findElement(By.xpath("//div[@class='header__navDesktop']/ul/li/a[@href='/en/about-us']"))).click().build().perform();
+			driver.findElement(By.xpath("//li/a[@href='/en/about-us/alumni']")).click();  //not finding correct link
+			break;
+		case "At a glance":
+			driver.findElement(By.xpath("//a[@href='/en/client-services'][1]")).click();
+			break;
+		case "Contact Us":
+			driver.findElement(By.xpath("//a[@href='/en/sectors'][1]")).click();
+			break;
+		case "Executive Committee":
+			driver.findElement(By.xpath("//a[@href='/en/find-a-lawyer'][1]")).click();
+			break;
+		case "Innovation":
+			driver.findElement(By.xpath("//a[@href='/en/locations'][1]")).click();
+			break;
+		case "News and Deals":
+			driver.findElement(By.xpath("//a[@href='/en/insights'][1]")).click();
+			break;
+		case "Responsibility":
+			driver.findElement(By.xpath("//a[@href='/en/careers'][1]")).click();
+			break;	
+		}
+	}
+	
+	
 	@When("^clicks on the \"([^\"]*)\" link in the primary navigation$")
 	public void clicking_on_the_link_in_the_primary_navigation(String link) throws Throwable {
 		switch(link) {
