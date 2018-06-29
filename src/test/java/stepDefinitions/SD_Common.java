@@ -23,20 +23,16 @@ public class SD_Common extends AbstractPageStepDefinition{
 		common.insightTitleClick();
 	}
 	
+	@Given("^clicks on the search toggle$")
+	public void clicks_on_the_search_icon() throws Throwable {
+		common = new Common(driver);
+		common.searchToggleClick();
+	}
+	
 	@Given("^hovers over the Insights title$")
 	public void hovers_over_the_Insights_title() throws Throwable {
-	    Actions builder = new Actions(driver);
-	    builder.moveToElement(driver.findElement(By.xpath("/html/body/header/div/div/div/ul/li[6]/a"))).build().perform();
-	}
-	
-	@Given("^clicks on the Blogs link from the secondary navigation$")
-	public void clicks_on_the_Blogs_link_from_the_secondary_navigation() throws Throwable {
-
-	}
-	
-	@Given("^clicks on the search icon$")
-	public void clicks_on_the_search_icon() throws Throwable {
-		driver.findElement(By.xpath("header__searchToggle")).click();
+		common = new Common(driver);
+	    common.insightTitleHover();
 	}
 	
 	@Given("^the search box will open$")
@@ -46,6 +42,12 @@ public class SD_Common extends AbstractPageStepDefinition{
 	}
 	
 	
+	
+	@Given("^clicks on the Blogs link from the secondary navigation$")
+	public void clicks_on_the_Blogs_link_from_the_secondary_navigation() throws Throwable {
+
+	}
+		
 	@Given("^hovers over the About Us title and selects \"([^\"]*)\"$")
 	public void hovers_over_the_About_Us_title_and_selects(String link) throws Throwable {
 		switch(link) {
