@@ -1,5 +1,7 @@
 package pageObjects;
 
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -17,6 +19,12 @@ public class Common extends AbstractPageStepDefinition {
 	
 	WebDriver driver = getDriver();
 	
+	@FindBy(how = How.XPATH, xpath = "//div[@class='header__navDesktop']/ul/li/a[@href='/en/about-us']")
+	private WebElement header_AboutUs;
+	
+	@FindBy(how = How.XPATH, xpath = "//li/a[@href='/en/about-us/alumni']")
+	private WebElement header_AboutUs_Alumni;
+	
 	@FindBy(how = How.XPATH, xpath ="/html/body/header/div/div/div/ul/li[6]/a")
 	private WebElement header_Insights;
 	
@@ -26,6 +34,15 @@ public class Common extends AbstractPageStepDefinition {
 	@FindBy(how = How.XPATH, xpath = "//button[@class='header__searchToggle']")
 	private WebElement header_SearchToggle;
 	
+	
+	public void aboutUsTitleHover(){
+		Actions builder = new Actions(driver);
+		builder.moveToElement(header_AboutUs).build().perform();
+	}
+	
+	public void aboutUsAlumniClick(){
+
+	}
 	
 	public void insightTitleClick(){
 		header_Insights.click();
@@ -42,6 +59,18 @@ public class Common extends AbstractPageStepDefinition {
 	
 	public void searchToggleClick(){
 		header_SearchToggle.click();
+	}
+	
+	public void searchInputSendKeys(){
+		header_SearchInput.sendKeys();
+	}
+	
+	public void searchInputAssertTrue(){
+		Assert.assertTrue("The searchbox opened successfully", header_SearchInput.isDisplayed());
+	}
+	
+	public void searchInputAssertFalse(){
+		Assert.assertFalse("", header_SearchInput.isDisplayed());
 	}
 	
 

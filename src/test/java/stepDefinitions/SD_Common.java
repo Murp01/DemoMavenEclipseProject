@@ -35,17 +35,43 @@ public class SD_Common extends AbstractPageStepDefinition{
 	    common.insightTitleHover();
 	}
 	
-	@Given("^the search box will open$")
+	@Given("^the search input will open$")
 	public void the_search_box_will_open() throws Throwable {
-		WebElement searchBox = driver.findElement(By.xpath("//input[@class='header__searchInput']"));
-		Assert.assertTrue("SearchBox opened", searchBox.isDisplayed());
+		common = new Common(driver);
+		common.searchInputAssertTrue();
 	}
 	
+	@Given("^the search input will not be open$")
+	public void the_search_box_will_not_be_open() throws Throwable {
+		common = new Common(driver);
+		common.searchInputAssertFalse();
+	}
 	
-	
-	@Given("^clicks on the Blogs link from the secondary navigation$")
-	public void clicks_on_the_Blogs_link_from_the_secondary_navigation() throws Throwable {
-
+	@When("^clicks on the \"([^\"]*)\" link in the primary navigation$")
+	public void clicking_on_the_link_in_the_primary_navigation(String link) throws Throwable {
+		switch(link) {
+		case "About Us":
+			driver.findElement(By.xpath("//a[@href='/en/about-us'][1]")).click();
+			break;
+		case "Client Services":
+			driver.findElement(By.xpath("//a[@href='/en/client-services'][1]")).click();
+			break;
+		case "Sectors":
+			driver.findElement(By.xpath("//a[@href='/en/sectors'][1]")).click();
+			break;
+		case "Find a Lawyer":
+			driver.findElement(By.xpath("//a[@href='/en/find-a-lawyer'][1]")).click();
+			break;
+		case "Locations":
+			driver.findElement(By.xpath("//a[@href='/en/locations'][1]")).click();
+			break;
+		case "Insights":
+			driver.findElement(By.xpath("//a[@href='/en/insights'][1]")).click();
+			break;
+		case "Careers":
+			driver.findElement(By.xpath("//a[@href='/en/careers'][1]")).click();
+			break;	
+		}
 	}
 		
 	@Given("^hovers over the About Us title and selects \"([^\"]*)\"$")
@@ -78,31 +104,11 @@ public class SD_Common extends AbstractPageStepDefinition{
 	}
 	
 	
-	@When("^clicks on the \"([^\"]*)\" link in the primary navigation$")
-	public void clicking_on_the_link_in_the_primary_navigation(String link) throws Throwable {
-		switch(link) {
-		case "About Us":
-			driver.findElement(By.xpath("//a[@href='/en/about-us'][1]")).click();
-			break;
-		case "Client Services":
-			driver.findElement(By.xpath("//a[@href='/en/client-services'][1]")).click();
-			break;
-		case "Sectors":
-			driver.findElement(By.xpath("//a[@href='/en/sectors'][1]")).click();
-			break;
-		case "Find a Lawyer":
-			driver.findElement(By.xpath("//a[@href='/en/find-a-lawyer'][1]")).click();
-			break;
-		case "Locations":
-			driver.findElement(By.xpath("//a[@href='/en/locations'][1]")).click();
-			break;
-		case "Insights":
-			driver.findElement(By.xpath("//a[@href='/en/insights'][1]")).click();
-			break;
-		case "Careers":
-			driver.findElement(By.xpath("//a[@href='/en/careers'][1]")).click();
-			break;	
-		}
+
+	
+	@Given("^clicks on the Blogs link from the secondary navigation$")
+	public void clicks_on_the_Blogs_link_from_the_secondary_navigation() throws Throwable {
+
 	}
 	
 	@Then("^Assert that the url contains \"([^\"]*)\"$")
