@@ -3,8 +3,9 @@ Description:
 
 Scenario: Open Insights article detail page
 	Given the user is on the homepage
-	And clicks on the "" link on the cookie banner
-	And clicks the close button on the cookie banner
+	And the cookie policy banner appears
+	Then the cookie policy banner will not be displayed
+
 
 	
 	

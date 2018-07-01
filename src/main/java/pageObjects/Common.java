@@ -34,6 +34,12 @@ public class Common extends AbstractPageStepDefinition {
 	@FindBy(how = How.XPATH, xpath = "//button[@class='header__searchToggle']")
 	private WebElement header_SearchToggle;
 	
+	@FindBy(how = How.XPATH, xpath = "//div[@class='notification-wrapper cookieWrapper']")
+	private WebElement header_CookieBanner;
+	
+	@FindBy(how = How.XPATH, xpath = "//div[@class='notification-wrapper cookieWrapper']/div/div/div[@class='notification-close']")
+	private WebElement header_CookieBannerCloseClick;
+	
 	
 	public void aboutUsTitleHover(){
 		Actions builder = new Actions(driver);
@@ -42,6 +48,19 @@ public class Common extends AbstractPageStepDefinition {
 	
 	public void aboutUsAlumniClick(){
 
+	}
+	
+	public void cookieBannerAssertTrue(){
+		header_CookieBanner.isDisplayed();
+	}
+	
+	public void cookieBannerAssertFalse(){
+		//doesn't work
+		Assert.assertFalse(header_CookieBanner.isDisplayed());
+	}
+	
+	public void cookieBannerCloseBtn(){
+		header_CookieBannerCloseClick.click();
 	}
 	
 	public void insightTitleClick(){

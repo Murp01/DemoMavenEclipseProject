@@ -49,7 +49,8 @@ public class SD_Common extends AbstractPageStepDefinition{
 	
 	@Given("^the cookie policy banner appears$")
 	public void the_cookie_policy_banner_appears() throws Throwable {
-
+		common = new Common(driver);
+		common.cookieBannerAssertTrue();
 	}
 	
 	@Given("^clicks on the \"([^\"]*)\" link on the cookie banner$")
@@ -59,6 +60,12 @@ public class SD_Common extends AbstractPageStepDefinition{
 
 	@Given("^clicks the close button on the cookie banner$")
 	public void clicks_the_close_button_on_the_cookie_banner() throws Throwable {
+		common = new Common(driver);
+		common.cookieBannerCloseBtn();
+	}
+	
+	@Then("^the cookie policy banner will not be displayed$")
+	public void the_cookie_policy_banner_will_not_be_displayed() throws Throwable {
 
 	}
 	
