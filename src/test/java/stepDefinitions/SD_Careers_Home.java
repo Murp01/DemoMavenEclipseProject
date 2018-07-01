@@ -20,12 +20,9 @@ public class SD_Careers_Home extends AbstractPageStepDefinition{
 	
 	@Given("^asserts the UK Careers microsite homepage is open$")
 	public void asserts_the_UK_Careers_microsite_homepage_is_open() throws Throwable {
-		WebDriverWait d=new WebDriverWait(driver,20);
-		d.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='header__navDesktop']/ul/li/a[@href='/en/early-careers']")));
-	    String title = driver.getTitle();
-		String url = driver.getCurrentUrl();
-		System.out.println(title);
-		System.out.println(url);
+		WebDriverWait wait =new WebDriverWait(driver,20);
+		wait.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/"));
+		wait.until(ExpectedConditions.titleIs("Linklaters Careers | Home"));
 	}
 	
 	
