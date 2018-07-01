@@ -47,6 +47,26 @@ public class SD_Common extends AbstractPageStepDefinition{
 		common.searchInputAssertFalse();
 	}
 	
+	@Given("^the cookie policy banner appears$")
+	public void the_cookie_policy_banner_appears() throws Throwable {
+
+	}
+	
+	@Given("^clicks on the \"([^\"]*)\" link on the cookie banner$")
+	public void clicks_on_the_link_on_the_cookie_banner(String arg1) throws Throwable {
+
+	}
+
+	@Given("^clicks the close button on the cookie banner$")
+	public void clicks_the_close_button_on_the_cookie_banner() throws Throwable {
+
+	}
+	
+	@Given("^clicks on the Linklaters logo$")
+	public void clicks_on_the_Linklaters_logo() throws Throwable {
+
+	}
+	
 	@When("^clicks on the \"([^\"]*)\" link in the primary navigation$")
 	public void clicking_on_the_link_in_the_primary_navigation(String link) throws Throwable {
 		switch(link) {
@@ -101,9 +121,7 @@ public class SD_Common extends AbstractPageStepDefinition{
 			driver.findElement(By.xpath("//a[@href='/en/careers'][1]")).click();
 			break;	
 		}
-	}
-	
-	
+	}	
 
 	
 	@Given("^clicks on the Blogs link from the secondary navigation$")
@@ -122,6 +140,16 @@ public class SD_Common extends AbstractPageStepDefinition{
 		Actions action = new Actions(driver);
 		action.moveToElement(driver.findElement(By.xpath("/html/body/header/div/div/div/ul/li[6]/a"))).click().build().perform();
 		driver.findElement(By.xpath("/html/body/nav/div/div[6]/ul[3]/li/a")).click();
+	}
+	
+	@Given("^clicks on the \"([^\"]*)\" button on the social media banner$")
+	public void clicks_on_the_button_on_the_social_media_banner(String arg1) throws Throwable {
+
+	}
+
+	@Given("^clicks on the \"([^\"]*)\" link from the footer$")
+	public void clicks_on_the_link_from_the_footer(String arg1) throws Throwable {
+
 	}
 
 }
