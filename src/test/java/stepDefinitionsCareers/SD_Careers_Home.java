@@ -1,4 +1,4 @@
-package stepDefinitions;
+package stepDefinitionsCareers;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
+import stepDefinitions.AbstractPageStepDefinition;
 
 public class SD_Careers_Home extends AbstractPageStepDefinition{
 	WebDriver driver = getDriver();
