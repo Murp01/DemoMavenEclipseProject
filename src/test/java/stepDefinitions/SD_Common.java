@@ -122,7 +122,6 @@ public class SD_Common extends AbstractPageStepDefinition{
 			break;	
 		}
 	}	
-
 	
 	@Given("^clicks on the Blogs link from the secondary navigation$")
 	public void clicks_on_the_Blogs_link_from_the_secondary_navigation() throws Throwable {
@@ -132,8 +131,7 @@ public class SD_Common extends AbstractPageStepDefinition{
 	@Then("^Assert that the url contains \"([^\"]*)\"$")
 	public void assert_that_the_url_contains(String title) throws Throwable {
 		Assert.assertTrue(driver.getTitle().contains(title));
-	}
-	
+	}	
 	
 	@Given("^hovers over the insights title and selects publications$")
 	public void hovers_over_the_insights_title_and_selects_publications() throws Throwable {
