@@ -7,3 +7,4 @@ Scenario: Open Insights article detail page
 	And asserts the UK Careers microsite homepage is open
 	
 	
+	

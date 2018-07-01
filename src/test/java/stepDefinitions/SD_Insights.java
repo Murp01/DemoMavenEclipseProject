@@ -47,5 +47,4 @@ public class SD_Insights extends AbstractPageStepDefinition {
 		//driver.quit();
 	}
 	
-
 }
