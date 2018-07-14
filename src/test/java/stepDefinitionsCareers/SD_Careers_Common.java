@@ -3,6 +3,7 @@ package stepDefinitionsCareers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import careerspageObjects.CareersCommon;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -10,32 +11,35 @@ import stepDefinitions.AbstractPageStepDefinition;
 
 public class SD_Careers_Common extends AbstractPageStepDefinition {
 	WebDriver driver = getDriver();
+	CareersCommon careersCommon;
 	
-	@When("^clicks on the \"([^\"]*)\" link in the careers primary navigation$")
+	@When("^clicking on the \"([^\"]*)\" title from the careers primary navigation$")
 	public void clicking_on_the_link_in_the_careers_primary_navigation(String link) throws Throwable {
+		careersCommon = new CareersCommon(driver);
 		switch(link) {
-		case "About Us":
-			driver.findElement(By.xpath("//a[@href='/en/about-us'][1]")).click();
+		case "Title01":
+			careersCommon.clickTitle01();
 			break;
-		case "Client Services":
-			driver.findElement(By.xpath("//a[@href='/en/client-services'][1]")).click();
+		case "Title02":
+			careersCommon.clickTitle02();
 			break;
-		case "Sectors":
-			driver.findElement(By.xpath("//a[@href='/en/sectors'][1]")).click();
+		case "Title03":
+			careersCommon.clickTitle03();
 			break;
-		case "Find a Lawyer":
-			driver.findElement(By.xpath("//a[@href='/en/find-a-lawyer'][1]")).click();
-			break;
-		case "Locations":
-			driver.findElement(By.xpath("//a[@href='/en/locations'][1]")).click();
-			break;
-		case "Insights":
-			driver.findElement(By.xpath("//a[@href='/en/insights'][1]")).click();
-			break;
-		case "Careers":
-			driver.findElement(By.xpath("//a[@href='/en/careers'][1]")).click();
-			break;	
 		}
+	}
+	
+	@Then("^the \"([^\"]*)\" careers page will be open$")
+	public void the_careers_page_will_be_open(String link) throws Throwable {
+/*	case "Title01":
+		driver.findElement(By.xpath("//a[@href='/en/early-careers'][1]")).click();
+		break;
+	case "Title02":
+		driver.findElement(By.xpath("//a[@href='/en/experienced-lawyers'][1]")).click();
+		break;
+	case "Title03":
+		driver.findElement(By.xpath("//a[@href='/en/business-teams'][1]")).click();
+		break;*/
 	}
 	
 	@Given("^selects \"([^\"]*)\" from the location selector at the top-right of the header banner$")
