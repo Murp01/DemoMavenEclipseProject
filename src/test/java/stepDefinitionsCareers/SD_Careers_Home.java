@@ -2,6 +2,7 @@ package stepDefinitionsCareers;
 
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -15,17 +16,6 @@ import stepDefinitions.AbstractPageStepDefinition;
 
 public class SD_Careers_Home extends AbstractPageStepDefinition{
 	WebDriver driver = getDriver();
-	
-	@Then("^the video hero banner will play automatically$")
-	public void the_video_hero_banner_will_play_automatically() throws Throwable {
-		//driver.findElement(By.id("seek5675")).getAttribute("value");
-		if (driver.findElement(By.xpath("//span[@class='plyr__progress']/input[@class='plyr__progress--seek']")).getAttribute("value") != null){
-			System.out.println("Video is playing");
-		}
-		else {
-			System.out.println("Video does not play");
-		}
-	}
 	
 	@When("^clicks on the Early Careers title in the primary navigation$")
 	public void clicks_on_the_Early_Careers_title_in_the_primary_navigation() throws Throwable {
@@ -41,7 +31,7 @@ public class SD_Careers_Home extends AbstractPageStepDefinition{
 	
 	@Given("^the user is on the Careers homepage$")
 	public void the_user_is_on_the_Careers_homepage() throws Throwable {
-		driver = new FirefoxDriver();
+		//driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);		
 		driver.get("https://careers.linklaters.com/");
 	}
@@ -71,6 +61,30 @@ public class SD_Careers_Home extends AbstractPageStepDefinition{
 
 	}
 	
+	//Hero Video Player
 	
+	@Then("^the video hero banner will play automatically$")
+	public void the_video_hero_banner_will_play_automatically() throws Throwable {		
+		Assert.assertTrue(driver.findElement(By.xpath("//span[@class='plyr__progress']/input[@class='plyr__progress--seek']")).getAttribute("value") != null);
+		//Try and capture progress then assert progress after a sleep to check pause
+	}
+	
+	@When("^clicking pause on the video hero banner$")
+	public void clicking_pause_on_the_video_hero_banner() throws Throwable {
+		String videoRunTime;
+		String videoRunTime2;
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		videoRunTime = driver.findElement(By.xpath("//span[@class='plyr__progress']/input[@class='plyr__progress--seek']")).getAttribute("value");
+		System.out.println(videoRunTime);
+		//driver.findElement(By.xpath("//div[@class='plyr__controls']/button[@type='button'][@aria-label='Play'][1]")).click();
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//videoRunTime2 = driver.findElement(By.xpath("//span[@class='plyr__progress']/input[@class='plyr__progress--seek']")).getAttribute("value");
+		//Assert.assertTrue(videoRunTime == videoRunTime2);	
+	}
+
+	@Then("^the video hero banner will pause$")
+	public void the_video_hero_banner_will_pause() throws Throwable {
+
+	}
 	
 }
