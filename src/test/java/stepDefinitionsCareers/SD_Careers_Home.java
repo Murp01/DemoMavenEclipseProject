@@ -1,7 +1,10 @@
 package stepDefinitionsCareers;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -12,8 +15,17 @@ import stepDefinitions.AbstractPageStepDefinition;
 
 public class SD_Careers_Home extends AbstractPageStepDefinition{
 	WebDriver driver = getDriver();
-
 	
+	@Then("^the video hero banner will play automatically$")
+	public void the_video_hero_banner_will_play_automatically() throws Throwable {
+		//driver.findElement(By.id("seek5675")).getAttribute("value");
+		if (driver.findElement(By.xpath("//span[@class='plyr__progress']/input[@class='plyr__progress--seek']")).getAttribute("value") != null){
+			System.out.println("Video is playing");
+		}
+		else {
+			System.out.println("Video does not play");
+		}
+	}
 	
 	@When("^clicks on the Early Careers title in the primary navigation$")
 	public void clicks_on_the_Early_Careers_title_in_the_primary_navigation() throws Throwable {
@@ -29,7 +41,9 @@ public class SD_Careers_Home extends AbstractPageStepDefinition{
 	
 	@Given("^the user is on the Careers homepage$")
 	public void the_user_is_on_the_Careers_homepage() throws Throwable {
-
+		driver = new FirefoxDriver();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);		
+		driver.get("https://careers.linklaters.com/");
 	}
 	
 	@Given("^the \"([^\"]*)\" Social Wall will be displayed with default filters set$")

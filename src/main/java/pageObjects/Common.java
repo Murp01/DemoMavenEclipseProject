@@ -40,7 +40,6 @@ public class Common extends AbstractPageStepDefinition {
 	@FindBy(how = How.XPATH, xpath = "//div[@class='notification-wrapper cookieWrapper']/div/div/div[@class='notification-close']")
 	private WebElement header_CookieBannerCloseClick;
 	
-	//Comments
 	
 	
 	public void aboutUsTitleHover(){

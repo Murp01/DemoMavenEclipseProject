@@ -1,5 +1,6 @@
 package stepDefinitionsCareers;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import cucumber.api.java.en.Given;
@@ -9,6 +10,33 @@ import stepDefinitions.AbstractPageStepDefinition;
 
 public class SD_Careers_Common extends AbstractPageStepDefinition {
 	WebDriver driver = getDriver();
+	
+	@When("^clicks on the \"([^\"]*)\" link in the careers primary navigation$")
+	public void clicking_on_the_link_in_the_careers_primary_navigation(String link) throws Throwable {
+		switch(link) {
+		case "About Us":
+			driver.findElement(By.xpath("//a[@href='/en/about-us'][1]")).click();
+			break;
+		case "Client Services":
+			driver.findElement(By.xpath("//a[@href='/en/client-services'][1]")).click();
+			break;
+		case "Sectors":
+			driver.findElement(By.xpath("//a[@href='/en/sectors'][1]")).click();
+			break;
+		case "Find a Lawyer":
+			driver.findElement(By.xpath("//a[@href='/en/find-a-lawyer'][1]")).click();
+			break;
+		case "Locations":
+			driver.findElement(By.xpath("//a[@href='/en/locations'][1]")).click();
+			break;
+		case "Insights":
+			driver.findElement(By.xpath("//a[@href='/en/insights'][1]")).click();
+			break;
+		case "Careers":
+			driver.findElement(By.xpath("//a[@href='/en/careers'][1]")).click();
+			break;	
+		}
+	}
 	
 	@Given("^selects \"([^\"]*)\" from the location selector at the top-right of the header banner$")
 	public void selects_from_the_location_selector_at_the_top_right_of_the_header_banner(String arg1) throws Throwable {
