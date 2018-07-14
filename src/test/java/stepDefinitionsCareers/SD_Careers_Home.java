@@ -9,6 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import careerspageObjects.CareersHomePage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -16,6 +17,7 @@ import stepDefinitions.AbstractPageStepDefinition;
 
 public class SD_Careers_Home extends AbstractPageStepDefinition{
 	WebDriver driver = getDriver();
+	CareersHomePage careersHomePage;
 	
 	@Given("^the \"([^\"]*)\" Social Wall will be displayed with default filters set$")
 	public void the_Social_Wall_will_be_displayed_with_default_filters_set(String arg1) throws Throwable {
@@ -63,9 +65,9 @@ public class SD_Careers_Home extends AbstractPageStepDefinition{
 	//Hero Video Player
 	
 	@Then("^the video hero banner will play automatically$")
-	public void the_video_hero_banner_will_play_automatically() throws Throwable {		
-		Assert.assertTrue(driver.findElement(By.xpath("//span[@class='plyr__progress']/input[@class='plyr__progress--seek']")).getAttribute("value") != null);
-		//Try and capture progress then assert progress after a sleep to check pause
+	public void the_video_hero_banner_will_play_automatically() throws Throwable {
+		careersHomePage = new CareersHomePage(driver);
+		careersHomePage.AssertHeroVideoAutoPlay();
 	}
 	
 	@When("^clicking pause on the video hero banner$")
