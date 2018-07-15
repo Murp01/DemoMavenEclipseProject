@@ -1,12 +1,9 @@
 package stepDefinitionsCareers;
 
-import java.util.concurrent.TimeUnit;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.interactions.Actions;
 
 import careerspageObjects.CareersCommon;
 import cucumber.api.java.en.Given;
@@ -19,50 +16,39 @@ public class SD_Careers_Common extends AbstractPageStepDefinition {
 	WebDriver driver = getDriver();
 	CareersCommon careersCommon;
 	
-	@When("^clicking on the \"([^\"]*)\" title from the careers primary navigation$")
-	public void clicking_on_the_link_in_the_careers_primary_navigation(String link) throws Throwable {
+	@When("^\"([^\"]*)\" is selected from the location select drop down box$")
+	public void is_selected_from_the_location_select_drop_down_box(String link) throws Throwable {
 		careersCommon = new CareersCommon(driver);
-		switch(link) {
-		case "Title01":
-			careersCommon.clickTitle01();
+		switch(link) { //20 locations
+		case "Location01":
+			careersCommon.mouseOverGeoToggle();
+			careersCommon.clickOnGeoSel01();
 			break;
-		case "Title02":
-			careersCommon.clickTitle02();
+		case "Location02":
+			careersCommon.mouseOverGeoToggle();
+			careersCommon.clickOnGeoSel02();
 			break;
-		case "Title03":
-			careersCommon.clickTitle03();
+		case "Location03":
+			careersCommon.mouseOverGeoToggle();
+			careersCommon.clickOnGeoSel03();			
 			break;
 		}
-	}
-	
-	
-	@Then("^\"([^\"]*)\" careers page is open$")
-	public void careers_page_is_open(String link) throws Throwable {
-		careersCommon = new CareersCommon(driver);
-		switch(link) {
-		case "Title01":
-			WebDriverWait  wait01 =new WebDriverWait(driver,5);
-			wait01.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/en/early-careers"));
-			break;
-		case "Title02":
-			WebDriverWait  wait02 =new WebDriverWait(driver,5);
-			wait02.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/en/experienced-lawyers"));
-			break;
-		case "Title03":
-			WebDriverWait  wait03 =new WebDriverWait(driver,5);
-			wait03.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/en/business-teams"));
-			break;
-		}
-	}
-	
-	@Given("^selects \"([^\"]*)\" from the location selector at the top-right of the header banner$")
-	public void selects_from_the_location_selector_at_the_top_right_of_the_header_banner(String arg1) throws Throwable {
-
 	}
 	
 	@Given("^\"([^\"]*)\" will be displayed in the header banner next to the search icon$")
-	public void will_be_displayed_in_the_header_banner_next_to_the_search_icon(String arg1) throws Throwable {
-
+	public void will_be_displayed_in_the_header_banner_next_to_the_search_icon(String link) throws Throwable {
+		careersCommon = new CareersCommon(driver);
+		switch(link) {
+		case "Location01":
+			
+			break;
+		case "Location02":
+			
+			break;
+		case "Location03":
+			
+			break;
+		}
 	}
 
 	@When("^the user clicks on the \"([^\"]*)\" filter$")
@@ -139,5 +125,38 @@ public class SD_Careers_Common extends AbstractPageStepDefinition {
 	public void the_page_specified_on_the_link_will_open() throws Throwable {
 
 	}
-
+	
+	//Primary navigation titles
+	
+	@When("^clicking on the \"([^\"]*)\" title from the careers primary navigation$")
+	public void clicking_on_the_link_in_the_careers_primary_navigation(String link) throws Throwable {
+		careersCommon = new CareersCommon(driver);
+		switch(link) {
+		case "Title01":
+			careersCommon.clickTitle01();
+			break;
+		case "Title02":
+			careersCommon.clickTitle02();
+			break;
+		case "Title03":
+			careersCommon.clickTitle03();
+			break;
+		}
+	}	
+	
+	@Then("^\"([^\"]*)\" careers page is open$")
+	public void careers_page_is_open(String link) throws Throwable {
+		careersCommon = new CareersCommon(driver);
+		switch(link) {
+		case "Title01":
+			careersCommon.assertTitle01();
+			break;
+		case "Title02":
+			careersCommon.assertTitle02();
+			break;
+		case "Title03":
+			careersCommon.assertTitle03();
+			break;
+		}
+	}
 }
