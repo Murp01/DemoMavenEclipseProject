@@ -6,9 +6,10 @@ import cucumber.api.junit.Cucumber;
  
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "src/test/resources/functionalTests"
+		features = "src/test/resources/CareersTests"
 		,glue = {"stepDefinitions","stepDefinitionsCareers"}
 		,monochrome = true
+		,tags = {"@Firstfeature"}
 		)
 
 public class TestRunner {

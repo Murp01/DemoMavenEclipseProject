@@ -4,6 +4,8 @@ package stepDefinitionsCareers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import careerspageObjects.CareersCommon;
 import cucumber.api.java.en.Given;
@@ -15,6 +17,21 @@ import stepDefinitions.AbstractPageStepDefinition;
 public class SD_Careers_Common extends AbstractPageStepDefinition {
 	WebDriver driver = getDriver();
 	CareersCommon careersCommon;
+	
+	@Given("^the browser is set up$")
+	public void the_browser_is_set_up() throws Throwable {
+		System.out.println("Browser set up placeholder");
+	}
+
+	@Given("^the cookies are cleared$")
+	public void the_cookies_are_cleared() throws Throwable {
+		System.out.println("The cookies are cleared placeholder and close cookie banner");
+	}
+	
+	@When("^clicking on the Linklaters home button$")
+	public void clicking_on_the_Linklaters_home_button() throws Throwable {
+		driver.findElement(By.xpath("//a[@class='header__brand']")).click();
+	}
 	
 	@When("^\"([^\"]*)\" is selected from the location select drop down box$")
 	public void is_selected_from_the_location_select_drop_down_box(String link) throws Throwable {
@@ -35,18 +52,21 @@ public class SD_Careers_Common extends AbstractPageStepDefinition {
 		}
 	}
 	
-	@Given("^\"([^\"]*)\" will be displayed in the header banner next to the search icon$")
-	public void will_be_displayed_in_the_header_banner_next_to_the_search_icon(String link) throws Throwable {
+	@Then("^the \"([^\"]*)\" version of the site will be opened$")
+	public void the_version_of_the_site_will_be_opened(String link) throws Throwable {
 		careersCommon = new CareersCommon(driver);
 		switch(link) {
 		case "Location01":
-			
+			WebDriverWait  wait01 =new WebDriverWait(driver,5);
+			wait01.until(ExpectedConditions.urlMatches("https://allenscareers.linklaters.com/"));
 			break;
 		case "Location02":
-			
+			WebDriverWait  wait02 =new WebDriverWait(driver,5);
+			wait02.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/fr-fr"));
 			break;
 		case "Location03":
-			
+			WebDriverWait  wait03 =new WebDriverWait(driver,5);
+			wait03.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/it-it"));
 			break;
 		}
 	}
