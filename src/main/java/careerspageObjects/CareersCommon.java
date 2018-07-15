@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import junit.framework.Assert;
 import stepDefinitions.AbstractPageStepDefinition;
 
 public class CareersCommon extends AbstractPageStepDefinition{
@@ -36,5 +37,9 @@ public class CareersCommon extends AbstractPageStepDefinition{
 	
 	public void clickTitle03(){
 		Title03.click();
+	}
+	
+	public void assertTitle01(){
+		
 	}
 }

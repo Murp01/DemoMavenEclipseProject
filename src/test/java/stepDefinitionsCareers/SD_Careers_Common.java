@@ -1,12 +1,18 @@
 package stepDefinitionsCareers;
 
+import java.util.concurrent.TimeUnit;
+
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import careerspageObjects.CareersCommon;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
 import stepDefinitions.AbstractPageStepDefinition;
 
 public class SD_Careers_Common extends AbstractPageStepDefinition {
@@ -30,17 +36,23 @@ public class SD_Careers_Common extends AbstractPageStepDefinition {
 	}
 	
 	
-	@Then("^the \"([^\"]*)\" careers page will be open$")
-	public void the_careers_page_will_be_open(String link) throws Throwable {
-/*	case "Title01":
-		driver.findElement(By.xpath("//a[@href='/en/early-careers'][1]")).click();
-		break;
-	case "Title02":
-		driver.findElement(By.xpath("//a[@href='/en/experienced-lawyers'][1]")).click();
-		break;
-	case "Title03":
-		driver.findElement(By.xpath("//a[@href='/en/business-teams'][1]")).click();
-		break;*/
+	@Then("^\"([^\"]*)\" careers page is open$")
+	public void careers_page_is_open(String link) throws Throwable {
+		careersCommon = new CareersCommon(driver);
+		switch(link) {
+		case "Title01":
+			WebDriverWait  wait01 =new WebDriverWait(driver,5);
+			wait01.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/en/early-careers"));
+			break;
+		case "Title02":
+			WebDriverWait  wait02 =new WebDriverWait(driver,5);
+			wait02.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/en/experienced-lawyers"));
+			break;
+		case "Title03":
+			WebDriverWait  wait03 =new WebDriverWait(driver,5);
+			wait03.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/en/business-teams"));
+			break;
+		}
 	}
 	
 	@Given("^selects \"([^\"]*)\" from the location selector at the top-right of the header banner$")
