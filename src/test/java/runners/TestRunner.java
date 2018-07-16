@@ -9,7 +9,7 @@ import cucumber.api.junit.Cucumber;
 		features = "src/test/resources/CareersTests"
 		,glue = {"stepDefinitions","stepDefinitionsCareers"}
 		,monochrome = true
-		,tags = {"@Firstfeature"}
+		,tags = {"@Trythis"}
 		)
 
 public class TestRunner {

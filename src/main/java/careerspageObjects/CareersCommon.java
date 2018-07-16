@@ -40,6 +40,9 @@ public class CareersCommon extends AbstractPageStepDefinition{
 	
 	@FindBy(how = How.XPATH, xpath = "//div[@class='header__geoToggle-list']/ul/li[3]/a")
 	private WebElement GeoSelect03;
+
+	@FindBy(how = How.XPATH, xpath = "//a[@class='header__brand']")
+	private WebElement LlHomeButton;
 	
 	
 	public void clickTitle01(){
@@ -52,6 +55,10 @@ public class CareersCommon extends AbstractPageStepDefinition{
 	
 	public void clickTitle03(){
 		Title03.click();
+	}
+	
+	public void clickLlHomeButton(){
+		LlHomeButton.click();
 	}
 	
 	public void assertTitle01(){
@@ -87,6 +94,21 @@ public class CareersCommon extends AbstractPageStepDefinition{
 	public void clickOnGeoSel03(){
 		Actions action = new Actions(driver);
 		action.moveToElement(GeoSelect03).click().build().perform();
+	}
+	
+	public void assertGeoSel01(){
+		WebDriverWait  wait01 =new WebDriverWait(driver,5);
+		wait01.until(ExpectedConditions.urlMatches("https://allenscareers.linklaters.com/"));
+	}
+	
+	public void assertGeoSel02(){
+		WebDriverWait  wait02 =new WebDriverWait(driver,5);
+		wait02.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/fr-fr"));
+	}
+	
+	public void assertGeoSel03(){
+		WebDriverWait  wait03 =new WebDriverWait(driver,5);
+		wait03.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/it-it"));
 	}
 	
 	

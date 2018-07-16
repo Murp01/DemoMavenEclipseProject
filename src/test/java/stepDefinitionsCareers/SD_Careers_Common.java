@@ -30,47 +30,12 @@ public class SD_Careers_Common extends AbstractPageStepDefinition {
 	
 	@When("^clicking on the Linklaters home button$")
 	public void clicking_on_the_Linklaters_home_button() throws Throwable {
-		driver.findElement(By.xpath("//a[@class='header__brand']")).click();
+		//driver.findElement(By.xpath("//a[@class='header__brand']")).click();
+		careersCommon = new CareersCommon(driver);
+		careersCommon.clickLlHomeButton();
 	}
 	
-	@When("^\"([^\"]*)\" is selected from the location select drop down box$")
-	public void is_selected_from_the_location_select_drop_down_box(String link) throws Throwable {
-		careersCommon = new CareersCommon(driver);
-		switch(link) { //20 locations
-		case "Location01":
-			careersCommon.mouseOverGeoToggle();
-			careersCommon.clickOnGeoSel01();
-			break;
-		case "Location02":
-			careersCommon.mouseOverGeoToggle();
-			careersCommon.clickOnGeoSel02();
-			break;
-		case "Location03":
-			careersCommon.mouseOverGeoToggle();
-			careersCommon.clickOnGeoSel03();			
-			break;
-		}
-	}
 	
-	@Then("^the \"([^\"]*)\" version of the site will be opened$")
-	public void the_version_of_the_site_will_be_opened(String link) throws Throwable {
-		careersCommon = new CareersCommon(driver);
-		switch(link) {
-		case "Location01":
-			WebDriverWait  wait01 =new WebDriverWait(driver,5);
-			wait01.until(ExpectedConditions.urlMatches("https://allenscareers.linklaters.com/"));
-			break;
-		case "Location02":
-			WebDriverWait  wait02 =new WebDriverWait(driver,5);
-			wait02.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/fr-fr"));
-			break;
-		case "Location03":
-			WebDriverWait  wait03 =new WebDriverWait(driver,5);
-			wait03.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/it-it"));
-			break;
-		}
-	}
-
 	@When("^the user clicks on the \"([^\"]*)\" filter$")
 	public void the_user_clicks_on_the_filter(String arg1) throws Throwable {
 
@@ -145,6 +110,48 @@ public class SD_Careers_Common extends AbstractPageStepDefinition {
 	public void the_page_specified_on_the_link_will_open() throws Throwable {
 
 	}
+	
+	//Linklaters home button
+	
+	
+	
+	
+	//Language Selector
+	
+	@When("^\"([^\"]*)\" is selected from the location select drop down box$")
+	public void is_selected_from_the_location_select_drop_down_box(String link) throws Throwable {
+		careersCommon = new CareersCommon(driver);
+		switch(link) { //20 locations
+		case "Location01":
+			careersCommon.mouseOverGeoToggle();
+			careersCommon.clickOnGeoSel01();
+			break;
+		case "Location02":
+			careersCommon.mouseOverGeoToggle();
+			careersCommon.clickOnGeoSel02();
+			break;
+		case "Location03":
+			careersCommon.mouseOverGeoToggle();
+			careersCommon.clickOnGeoSel03();			
+			break;
+		}
+	}
+	
+	@Then("^the \"([^\"]*)\" version of the site will be opened$")
+	public void the_version_of_the_site_will_be_opened(String link) throws Throwable {
+		careersCommon = new CareersCommon(driver);
+		switch(link) {
+		case "Location01":
+			careersCommon.assertGeoSel01();
+			break;
+		case "Location02":
+			careersCommon.assertGeoSel02();
+			break;
+		case "Location03":
+			careersCommon.assertGeoSel03();
+			break;
+		}
+	}	
 	
 	//Primary navigation titles
 	
