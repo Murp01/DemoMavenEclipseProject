@@ -11,7 +11,8 @@ Scenario: Click on Linklaters home button for each language
 	Given the user is on the Careers homepage
 	When "Location01" is selected from the location select drop down box
 	Then the "Location01" version of the site will be opened
-		
+	
+@Trythis		
 Scenario: Click on each primary navigation title
 	Given the user is on the Careers homepage
 	When clicking on the "Title03" title from the careers primary navigation
@@ -23,7 +24,7 @@ Scenario: Select languages from the primary navigation
 	When "Location01" is selected from the location select drop down box
 	Then the "Location01" version of the site will be opened
 		
-@Trythis
+
 Scenario: Apply for an Early Careers role
 	Given the user is on the Careers homepage
 

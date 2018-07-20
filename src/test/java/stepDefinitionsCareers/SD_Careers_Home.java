@@ -5,7 +5,9 @@ import java.util.concurrent.TimeUnit;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -57,7 +59,6 @@ public class SD_Careers_Home extends AbstractPageStepDefinition{
 	
 	@Given("^the user is on the Careers homepage$")
 	public void the_user_is_on_the_Careers_homepage() throws Throwable {
-		//driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);		
 		driver.get("https://careers.linklaters.com/");
 	}

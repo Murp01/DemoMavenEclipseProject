@@ -18,6 +18,35 @@ public class SD_Careers_Common extends AbstractPageStepDefinition {
 	WebDriver driver = getDriver();
 	CareersCommon careersCommon;
 	
+	@Given("^clicking on \"([^\"]*)\" from \"([^\"]*)\"$")
+	public void clicking_on_from(String secNav, String titNav) throws Throwable {
+		switch(titNav){
+		case "Title01":
+			switch(secNav){
+			case "Our opportunities":
+/*				Actions action = new Actions(driver);
+				action.moveToElement(driver.findElement(By.xpath("//div[@class='header__navDesktop']/ul/li/a[@href='/en/early-careers']")))
+				.click(driver.findElement(By.xpath("//a[@href='/en/early-careers/our-opportunities']"))).build().perform();*/
+				new Actions(driver).moveToElement(driver.findElement(By.xpath("//div[@class='header__navDesktop']/ul/li/a[@href='/en/early-careers']"))).perform();
+				new Actions(driver).moveToElement(driver.findElement(By.xpath("//a[@href='/en/early-careers/our-opportunities']"))).perform();
+				driver.findElement(By.xpath("//a[@href='/en/early-careers/our-opportunities']")).click();
+				//subLink.click();
+				
+				break;
+			}
+			case "Our people":
+				driver.findElement(By.xpath("//div[@class='header__navDesktop']/ul/li/a[@href='/en/experienced-lawyers']")).click();
+				break;
+		}
+	}
+
+	
+
+	
+	
+	
+	
+	
 	@Given("^the browser is set up$")
 	public void the_browser_is_set_up() throws Throwable {
 		System.out.println("Browser set up placeholder");
@@ -26,13 +55,6 @@ public class SD_Careers_Common extends AbstractPageStepDefinition {
 	@Given("^the cookies are cleared$")
 	public void the_cookies_are_cleared() throws Throwable {
 		System.out.println("The cookies are cleared placeholder and close cookie banner");
-	}
-	
-	@When("^clicking on the Linklaters home button$")
-	public void clicking_on_the_Linklaters_home_button() throws Throwable {
-		//driver.findElement(By.xpath("//a[@class='header__brand']")).click();
-		careersCommon = new CareersCommon(driver);
-		careersCommon.clickLlHomeButton();
 	}
 	
 	
@@ -113,8 +135,11 @@ public class SD_Careers_Common extends AbstractPageStepDefinition {
 	
 	//Linklaters home button
 	
-	
-	
+	@When("^clicking on the Linklaters home button$")
+	public void clicking_on_the_Linklaters_home_button() throws Throwable { 
+		careersCommon = new CareersCommon(driver);
+		careersCommon.clickLlHomeButton();
+	}	
 	
 	//Language Selector
 	
@@ -154,6 +179,8 @@ public class SD_Careers_Common extends AbstractPageStepDefinition {
 	}	
 	
 	//Primary navigation titles
+	
+
 	
 	@When("^clicking on the \"([^\"]*)\" title from the careers primary navigation$")
 	public void clicking_on_the_link_in_the_careers_primary_navigation(String link) throws Throwable {
