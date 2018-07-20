@@ -3,6 +3,7 @@ package stepDefinitionsCareers;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -24,19 +25,17 @@ public class SD_Careers_Common extends AbstractPageStepDefinition {
 		case "Title01":
 			switch(secNav){
 			case "Our opportunities":
-/*				Actions action = new Actions(driver);
-				action.moveToElement(driver.findElement(By.xpath("//div[@class='header__navDesktop']/ul/li/a[@href='/en/early-careers']")))
-				.click(driver.findElement(By.xpath("//a[@href='/en/early-careers/our-opportunities']"))).build().perform();*/
-				new Actions(driver).moveToElement(driver.findElement(By.xpath("//div[@class='header__navDesktop']/ul/li/a[@href='/en/early-careers']"))).perform();
-				new Actions(driver).moveToElement(driver.findElement(By.xpath("//a[@href='/en/early-careers/our-opportunities']"))).perform();
-				driver.findElement(By.xpath("//a[@href='/en/early-careers/our-opportunities']")).click();
-				//subLink.click();
-				
+				Actions action = new Actions(driver);	
+				action.moveToElement(driver.findElement(By.xpath("/html/body/header/div/div/div[1]/ul/li[1]/a"))).build().perform();
+				WebDriverWait wait = new WebDriverWait(driver, 15);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/nav/div/div[1]/ul[1]/li[1]/a")));
+				driver.findElement(By.xpath("/html/body/nav/div/div[1]/ul[1]/li[1]/a")).click();
+				//this select the right page and then clicks on experienced lawayers for some reason
+				break;
+			case "Our people":
+				//driver.findElement(By.xpath("//div[@class='header__navDesktop']/ul/li/a[@href='/en/experienced-lawyers']")).click();
 				break;
 			}
-			case "Our people":
-				driver.findElement(By.xpath("//div[@class='header__navDesktop']/ul/li/a[@href='/en/experienced-lawyers']")).click();
-				break;
 		}
 	}
 

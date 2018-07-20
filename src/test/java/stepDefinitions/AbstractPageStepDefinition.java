@@ -8,20 +8,20 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 public class AbstractPageStepDefinition {
 	protected static WebDriver driver;
 	
-/*	protected WebDriver getDriver(){
+	protected WebDriver getDriver(){
 		if (driver == null){
 			driver = new FirefoxDriver();
 		}
 		return driver;
-	}*/
+	}
 	
-	protected WebDriver getDriver(){
+/*	protected WebDriver getDriver(){
 		if (driver == null){
 			System.setProperty("webdriver.chrome.driver", "C:\\Webdrivers\\chromedriver_win32\\chromedriver.exe");		
 			driver = new ChromeDriver();
 		}
 		return driver;
-	}
+	}*/
 	
 /*	protected WebDriver getDriver(){
 		if (driver == null){
