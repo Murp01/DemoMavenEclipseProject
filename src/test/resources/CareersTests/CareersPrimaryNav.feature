@@ -26,4 +26,9 @@ Scenario: Select languages from the primary navigation
 
 Scenario: Apply for an Early Careers role
 	Given the user is on the Careers homepage
+	
+
+Scenario: Click on all secondary navigation titles in title01
+	Given the user is on the Careers homepage
+	And clicking on "Our opportunities" from "Title01"
 

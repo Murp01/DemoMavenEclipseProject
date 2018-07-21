@@ -44,7 +44,77 @@ public class CareersCommon extends AbstractPageStepDefinition{
 	@FindBy(how = How.XPATH, xpath = "//a[@class='header__brand']")
 	private WebElement LlHomeButton;
 	
+	@FindBy(how = How.XPATH, xpath = "//a[@href='/en/early-careers/our-opportunities']")
+	private WebElement EarlyCareersToMyOpportunities;
 	
+	@FindBy(how = How.XPATH, xpath = "//a[@href='/en/early-careers/our-people']")
+	private WebElement EarlyCareersToOurPeople;
+	
+	@FindBy(how = How.XPATH, xpath = "//a[@href='/en/early-careers/meet-us']")
+	private WebElement EarlyCareersToMeetUs;
+	
+	@FindBy(how = How.XPATH, xpath = "//a[@href='/en/early-careers/our-work']")
+	private WebElement EarlyCareersToOurWork;
+	
+	@FindBy(how = How.XPATH, xpath = "//a[@href='/en/early-careers/your-career']")
+	private WebElement EarlyCareersToYourCareer;
+	
+	@FindBy(how = How.XPATH, xpath = "//a[@href='/en/early-careers/your-application']")
+	private WebElement EarlyCareersToYourApplication;
+	
+	@FindBy(how = How.XPATH, xpath = "//a[@href='/en/early-careers/our-deals']")
+	private WebElement EarlyCareersToOurDeals;
+	
+	@FindBy(how = How.XPATH, xpath = "//a[@href='/en/early-careers/why-join']")
+	private WebElement EarlyCareersToWhyJoin;
+	
+	@FindBy(how = How.XPATH, xpath = "//a[@href='/en/early-careers/who-we-are']")
+	private WebElement EarlyCareersToWhoWeAre;
+	
+	@FindBy(how = How.XPATH, xpath = "//a[@href='/en/early-careers/commercial-awareness']")
+	private WebElement EarlyCareersToCommercialAwareness;
+	
+	
+	public void clickSecOurOpportunites(){
+		EarlyCareersToMyOpportunities.click();
+	}
+	
+	public void clickSecOurPeople(){
+		EarlyCareersToOurPeople.click();
+	}	
+	
+	public void clickSecMeetUs(){
+		EarlyCareersToMeetUs.click();
+	}
+	
+	public void clickSecOurWork(){
+		EarlyCareersToOurWork.click();
+	}
+	
+	public void clickSecYourCareer(){
+		EarlyCareersToYourCareer.click();
+	}
+	
+	public void clickSecYourApplication(){
+		EarlyCareersToYourApplication.click();
+	}
+	
+	public void clickSecOurDeals(){
+		EarlyCareersToOurDeals.click();
+	}
+	
+	public void clickSecWhyJoin(){
+		EarlyCareersToWhyJoin.click();
+	}
+	
+	public void clickSecWhoWeAre(){
+		EarlyCareersToWhoWeAre.click();
+	}
+	
+	public void clickSecCommercialAwareness(){
+		EarlyCareersToCommercialAwareness.click();
+	}
+		
 	public void clickTitle01(){
 		Title01.click();
 	}
@@ -61,6 +131,13 @@ public class CareersCommon extends AbstractPageStepDefinition{
 		LlHomeButton.click();
 	}
 	
+	public void mouseHoverTitle01(){
+		Actions action = new Actions(driver);	
+		action.moveToElement(driver.findElement(By.xpath("//div[@class='header__navDesktop']/ul/li/a[@href='/en/early-careers']"))).build().perform();
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='/en/early-careers/our-opportunities']")));
+	}
+		
 	public void assertTitle01(){
 		WebDriverWait  wait01 =new WebDriverWait(driver,5);
 		wait01.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/en/early-careers"));

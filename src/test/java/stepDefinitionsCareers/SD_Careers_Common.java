@@ -19,21 +19,54 @@ public class SD_Careers_Common extends AbstractPageStepDefinition {
 	WebDriver driver = getDriver();
 	CareersCommon careersCommon;
 	
+	//add assertions from separate method
 	@Given("^clicking on \"([^\"]*)\" from \"([^\"]*)\"$")
 	public void clicking_on_from(String secNav, String titNav) throws Throwable {
 		switch(titNav){
 		case "Title01":
 			switch(secNav){
 			case "Our opportunities":				
-				Actions action = new Actions(driver);	
-				action.moveToElement(driver.findElement(By.xpath("//div[@class='header__navDesktop']/ul/li/a[@href='/en/early-careers']"))).build().perform();
-				WebDriverWait wait = new WebDriverWait(driver, 15);
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='/en/early-careers/our-opportunities']")));
-				driver.findElement(By.xpath("//a[@href='/en/early-careers/our-opportunities']")).click();			
+				careersCommon = new CareersCommon(driver);
+				careersCommon.mouseHoverTitle01();
+				careersCommon.clickSecOurOpportunites();
 				break;
 			case "Our people":
-				//driver.findElement(By.xpath("//div[@class='header__navDesktop']/ul/li/a[@href='/en/experienced-lawyers']")).click();
+				careersCommon = new CareersCommon(driver);
+				careersCommon.mouseHoverTitle01();
+				careersCommon.clickSecOurPeople();			
 				break;
+			case "Meet Us":
+				careersCommon = new CareersCommon(driver);				
+				careersCommon = new CareersCommon(driver);
+				careersCommon.clickSecMeetUs();
+			case "Our Work":
+				careersCommon = new CareersCommon(driver);
+				careersCommon = new CareersCommon(driver);
+				careersCommon.clickSecOurWork();
+			case "Your Career":
+				careersCommon = new CareersCommon(driver);
+				careersCommon = new CareersCommon(driver);
+				careersCommon.clickSecYourCareer();
+			case "Your Application":
+				careersCommon = new CareersCommon(driver);
+				careersCommon = new CareersCommon(driver);
+				careersCommon.clickSecYourApplication();
+			case "Our Deals":
+				careersCommon = new CareersCommon(driver);
+				careersCommon = new CareersCommon(driver);
+				careersCommon.clickSecOurDeals();
+			case "Why Join":
+				careersCommon = new CareersCommon(driver);
+				careersCommon = new CareersCommon(driver);
+				careersCommon.clickSecWhyJoin();
+			case "Who we are":
+				careersCommon = new CareersCommon(driver);
+				careersCommon = new CareersCommon(driver);
+				careersCommon.clickSecWhoWeAre();
+			case "Commercial Awareness":
+				careersCommon = new CareersCommon(driver);
+				careersCommon = new CareersCommon(driver);
+				careersCommon.clickSecCommercialAwareness();
 			}
 		}
 	}
