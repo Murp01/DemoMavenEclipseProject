@@ -24,13 +24,12 @@ public class SD_Careers_Common extends AbstractPageStepDefinition {
 		switch(titNav){
 		case "Title01":
 			switch(secNav){
-			case "Our opportunities":
+			case "Our opportunities":				
 				Actions action = new Actions(driver);	
-				action.moveToElement(driver.findElement(By.xpath("/html/body/header/div/div/div[1]/ul/li[1]/a"))).build().perform();
+				action.moveToElement(driver.findElement(By.xpath("//div[@class='header__navDesktop']/ul/li/a[@href='/en/early-careers']"))).build().perform();
 				WebDriverWait wait = new WebDriverWait(driver, 15);
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/nav/div/div[1]/ul[1]/li[1]/a")));
-				driver.findElement(By.xpath("/html/body/nav/div/div[1]/ul[1]/li[1]/a")).click();
-				//this select the right page and then clicks on experienced lawayers for some reason
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='/en/early-careers/our-opportunities']")));
+				driver.findElement(By.xpath("//a[@href='/en/early-careers/our-opportunities']")).click();			
 				break;
 			case "Our people":
 				//driver.findElement(By.xpath("//div[@class='header__navDesktop']/ul/li/a[@href='/en/experienced-lawyers']")).click();
@@ -39,13 +38,7 @@ public class SD_Careers_Common extends AbstractPageStepDefinition {
 		}
 	}
 
-	
-
-	
-	
-	
-	
-	
+		
 	@Given("^the browser is set up$")
 	public void the_browser_is_set_up() throws Throwable {
 		System.out.println("Browser set up placeholder");
