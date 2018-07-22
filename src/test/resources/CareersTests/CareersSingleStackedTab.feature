@@ -5,7 +5,6 @@ Feature: Single Stacked Tab
 Scenario: Open all stacked tabs
 	Given the user is on the Careers homepage
 	And clicking on "Our opportunities" from "Title01"
-	And clicking on "Our people" from "Title01"
 	And clicking on "Meet Us" from "Title01"
 	And clicking on "Our Work" from "Title01"
 	And clicking on "Your Career" from "Title01"

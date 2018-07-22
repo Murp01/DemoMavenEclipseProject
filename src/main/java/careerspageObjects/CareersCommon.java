@@ -1,12 +1,14 @@
 package careerspageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -47,10 +49,13 @@ public class CareersCommon extends AbstractPageStepDefinition{
 	@FindBy(how = How.XPATH, xpath = "//a[@href='/en/early-careers/our-opportunities']")
 	private WebElement EarlyCareersToMyOpportunities;
 	
-	@FindBy(how = How.XPATH, xpath = "//a[@href='/en/early-careers/our-people']")
+	@FindBy(how = How.XPATH, xpath = "/html/body/nav/div/div[1]/ul[1]/li[2]/a")
 	private WebElement EarlyCareersToOurPeople;
 	
-	@FindBy(how = How.XPATH, xpath = "//a[@href='/en/early-careers/meet-us']")
+	
+	//a[@href='/en/early-careers/our-people']
+	
+	@FindBy(how = How.XPATH, xpath = "/html/body/nav/div/div[1]/ul[2]/li[3]/a")
 	private WebElement EarlyCareersToMeetUs;
 	
 	@FindBy(how = How.XPATH, xpath = "//a[@href='/en/early-careers/our-work']")
@@ -74,17 +79,56 @@ public class CareersCommon extends AbstractPageStepDefinition{
 	@FindBy(how = How.XPATH, xpath = "//a[@href='/en/early-careers/commercial-awareness']")
 	private WebElement EarlyCareersToCommercialAwareness;
 	
-	
+	public void jsWaitforPageToLoad(){
+		ExpectedCondition<Boolean> expectation = new
+	            ExpectedCondition<Boolean>() {
+	        public Boolean apply(WebDriver driver) {
+	            return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete");
+	        }
+	    };
+	    try {
+	        Thread.sleep(1000);
+	        WebDriverWait wait = new WebDriverWait(driver, 30);
+	        wait.until(expectation);
+	    } catch (Throwable error) {
+	        //Assert.fail("Timeout waiting for Page Load Request to complete.");
+	    }
+	}
+
 	public void clickSecOurOpportunites(){
 		EarlyCareersToMyOpportunities.click();
+		jsWaitforPageToLoad();
 	}
 	
 	public void clickSecOurPeople(){
 		EarlyCareersToOurPeople.click();
+		jsWaitforPageToLoad();
 	}	
+	
+	public void mouseHoverTitle01(){
+		Actions action = new Actions(driver);	
+		action.moveToElement(Title01).build().perform();
+/*		WebDriverWait wait = new WebDriverWait(driver, 15);
+		wait.until(ExpectedConditions.elementToBeClickable(EarlyCareersToMyOpportunities));
+		wait.until(ExpectedConditions.elementToBeClickable(EarlyCareersToOurPeople));*/
+		jsWaitforPageToLoad();
+	}
 	
 	public void clickSecMeetUs(){
 		EarlyCareersToMeetUs.click();
+		ExpectedCondition<Boolean> expectation = new
+	            ExpectedCondition<Boolean>() {
+	        public Boolean apply(WebDriver driver) {
+	            return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete");
+	        }
+	    };
+	    try {
+	        Thread.sleep(1000);
+	        WebDriverWait wait = new WebDriverWait(driver, 30);
+	        wait.until(expectation);
+	    } catch (Throwable error) {
+	        //Assert.fail("Timeout waiting for Page Load Request to complete.");
+	    }
 	}
 	
 	public void clickSecOurWork(){
@@ -131,12 +175,7 @@ public class CareersCommon extends AbstractPageStepDefinition{
 		LlHomeButton.click();
 	}
 	
-	public void mouseHoverTitle01(){
-		Actions action = new Actions(driver);	
-		action.moveToElement(driver.findElement(By.xpath("//div[@class='header__navDesktop']/ul/li/a[@href='/en/early-careers']"))).build().perform();
-		WebDriverWait wait = new WebDriverWait(driver, 15);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='/en/early-careers/our-opportunities']")));
-	}
+
 		
 	public void assertTitle01(){
 		WebDriverWait  wait01 =new WebDriverWait(driver,5);
