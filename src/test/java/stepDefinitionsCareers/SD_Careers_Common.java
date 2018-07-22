@@ -39,34 +39,42 @@ public class SD_Careers_Common extends AbstractPageStepDefinition {
 				careersCommon = new CareersCommon(driver);				
 				careersCommon.mouseHoverTitle01();
 				careersCommon.clickSecMeetUs();
+				break;
 			case "Our Work":
 				careersCommon = new CareersCommon(driver);
-				careersCommon = new CareersCommon(driver);
+				careersCommon.mouseHoverTitle01();
 				careersCommon.clickSecOurWork();
+				break;
 			case "Your Career":
 				careersCommon = new CareersCommon(driver);
-				careersCommon = new CareersCommon(driver);
+				careersCommon.mouseHoverTitle01();
 				careersCommon.clickSecYourCareer();
+				break;
 			case "Your Application":
 				careersCommon = new CareersCommon(driver);
-				careersCommon = new CareersCommon(driver);
+				careersCommon.mouseHoverTitle01();
 				careersCommon.clickSecYourApplication();
+				break;
 			case "Our Deals":
 				careersCommon = new CareersCommon(driver);
-				careersCommon = new CareersCommon(driver);
+				careersCommon.mouseHoverTitle01();
 				careersCommon.clickSecOurDeals();
+				break;
 			case "Why Join":
 				careersCommon = new CareersCommon(driver);
-				careersCommon = new CareersCommon(driver);
+				careersCommon.mouseHoverTitle01();
 				careersCommon.clickSecWhyJoin();
+				break;
 			case "Who we are":
 				careersCommon = new CareersCommon(driver);
-				careersCommon = new CareersCommon(driver);
+				careersCommon.mouseHoverTitle01();
 				careersCommon.clickSecWhoWeAre();
+				break;
 			case "Commercial Awareness":
 				careersCommon = new CareersCommon(driver);
-				careersCommon = new CareersCommon(driver);
+				careersCommon.mouseHoverTitle01();
 				careersCommon.clickSecCommercialAwareness();
+				break;
 			}
 		}
 	}
