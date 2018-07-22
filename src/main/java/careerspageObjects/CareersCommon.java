@@ -144,8 +144,6 @@ public class CareersCommon extends AbstractPageStepDefinition{
 		wait03.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/it-it"));
 	}
 		
-
-	
 	public void assertTitle02(){
 		WebDriverWait  wait01 =new WebDriverWait(driver,5);
 		wait01.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/en/experienced-lawyers"));

@@ -1,4 +1,4 @@
-package stepDefinitionsCareers;
+ package stepDefinitionsCareers;
 
 import java.util.concurrent.TimeUnit;
 
@@ -58,9 +58,8 @@ public class SD_Careers_Home extends AbstractPageStepDefinition{
 	}
 	
 	@Given("^the user is on the Careers homepage$")
-	public void the_user_is_on_the_Careers_homepage() throws Throwable {
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);	
-		driver.manage().window().maximize();
+	public void the_user_is_on_the_Careers_homepage() throws Throwable {	
+		
 		driver.get("https://careers.linklaters.com/");
 	}
 	

@@ -1,7 +1,10 @@
 package stepDefinitionsCareers;
 
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import careerspageObjects.CareersCommon;
+import careerspageObjects.CareersOurOpportunities;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -11,18 +14,10 @@ import stepDefinitions.AbstractPageStepDefinition;
 
 public class SD_Careers_Common extends AbstractPageStepDefinition {
 	WebDriver driver = getDriver();
-	CareersCommon careersCommon;
 	SD_Careers_EarlyCareers sdCareersEarlyCareers;
-	
-	@Before
-	public void testSetUp() {
-	  System.out.println("Test set up");
-	}
-	
-	@After
-	public void testTearDown() {
-		System.out.println("Test tear down");
-	}
+	CareersCommon careersCommon;
+	CareersOurOpportunities careersOurOpportunities;
+
 	
 	@Then("^\"([^\"]*)\" careers page is open$")
 	public void careers_page_is_open(String link) throws Throwable {
@@ -39,6 +34,7 @@ public class SD_Careers_Common extends AbstractPageStepDefinition {
 			break;
 		}
 	}
+
 	
 	//add assertions from separate method
 	@Given("^clicking on \"([^\"]*)\" from \"([^\"]*)\"$")
@@ -47,9 +43,11 @@ public class SD_Careers_Common extends AbstractPageStepDefinition {
 		case "Title01":
 			switch(secNav){
 			case "Our opportunities":				
-				careersCommon = new CareersCommon(driver);
+				careersCommon = new CareersCommon(driver);				
 				careersCommon.mouseHoverTitle01();
 				careersCommon.clickSecOurOpportunites();
+				careersOurOpportunities = new CareersOurOpportunities(driver);
+				careersOurOpportunities.AssertBreadCrumbOurOpportunities();
 				break;
 			case "Our people":
 				careersCommon = new CareersCommon(driver);
