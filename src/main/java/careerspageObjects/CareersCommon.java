@@ -117,10 +117,6 @@ public class CareersCommon extends AbstractPageStepDefinition{
 		EarlyCareersToYourCareer.click();
 	}
 	
-	public void clickTitle01(){
-		Title01.click();
-	}
-	
 	public void clickTitle02(){
 		Title02.click();
 	}
@@ -148,10 +144,7 @@ public class CareersCommon extends AbstractPageStepDefinition{
 		wait03.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/it-it"));
 	}
 		
-	public void assertTitle01(){
-		WebDriverWait  wait01 =new WebDriverWait(driver,5);
-		wait01.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/en/early-careers"));
-	}
+
 	
 	public void assertTitle02(){
 		WebDriverWait  wait01 =new WebDriverWait(driver,5);
@@ -182,6 +175,10 @@ public class CareersCommon extends AbstractPageStepDefinition{
 		Actions action = new Actions(driver);
 		action.moveToElement(GeoSelect03).click().build().perform();
 	}
+	
+	public void clickTitle01(){
+		Title01.click();
+	}
 		
 	public void jsWaitforPageToLoad(){
 		ExpectedCondition<Boolean> expectation = new
@@ -199,7 +196,8 @@ public class CareersCommon extends AbstractPageStepDefinition{
 	    }
 	}
 	
-	public void mouseHoverTitle01(){	
+	public void mouseHoverTitle01(){
+		//CareersCommon careersCommon = new CareersCommon(driver);
 		Actions action = new Actions(driver);	
 		action.moveToElement(Title01).build().perform();
 		jsWaitforPageToLoad();

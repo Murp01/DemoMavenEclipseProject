@@ -22,7 +22,6 @@ public class SD_Common extends AbstractPageStepDefinition{
 		Assert.assertTrue(driver.getTitle().contains(title));
 	}	
 	
-	
 	@Given("^clicks on the Blogs link from the secondary navigation$")
 	public void clicks_on_the_Blogs_link_from_the_secondary_navigation() throws Throwable {
 
@@ -105,21 +104,6 @@ public class SD_Common extends AbstractPageStepDefinition{
 			driver.findElement(By.xpath("//a[@href='/en/careers'][1]")).click();
 			break;	
 		}
-	}
-	
-	@Given("^clicks on the \"([^\"]*)\" button on the social media banner$")
-	public void clicks_on_the_button_on_the_social_media_banner(String arg1) throws Throwable {
-
-	}
-	
-	@Given("^clicks on the \"([^\"]*)\" link on the cookie banner$")
-	public void clicks_on_the_link_on_the_cookie_banner(String arg1) throws Throwable {
-
-	}
-	
-	@Given("^clicks on the \"([^\"]*)\" link from the footer$")
-	public void clicks_on_the_link_from_the_footer(String arg1) throws Throwable {
-
 	}
 	
 	@Given("^the cookie policy banner appears$")

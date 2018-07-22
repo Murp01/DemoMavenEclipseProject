@@ -1,30 +1,35 @@
 package stepDefinitionsCareers;
 
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import careerspageObjects.CareersCommon;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-
 import stepDefinitions.AbstractPageStepDefinition;
 
 public class SD_Careers_Common extends AbstractPageStepDefinition {
 	WebDriver driver = getDriver();
 	CareersCommon careersCommon;
+	SD_Careers_EarlyCareers sdCareersEarlyCareers;
+	
+	@Before
+	public void testSetUp() {
+	  System.out.println("Test set up");
+	}
+	
+	@After
+	public void testTearDown() {
+		System.out.println("Test tear down");
+	}
 	
 	@Then("^\"([^\"]*)\" careers page is open$")
 	public void careers_page_is_open(String link) throws Throwable {
 		careersCommon = new CareersCommon(driver);
 		switch(link) {
 		case "Title01":
-			careersCommon.assertTitle01();
+			sdCareersEarlyCareers.assertTitle01();
 			break;
 		case "Title02":
 			careersCommon.assertTitle02();
@@ -162,13 +167,4 @@ public class SD_Careers_Common extends AbstractPageStepDefinition {
 		}
 	}
 	
-
-	
-	//Primary navigation titles
-	
-
-	
-
-	
-
 }
