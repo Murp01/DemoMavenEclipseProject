@@ -16,9 +16,9 @@ public class SD_Careers_Hooks extends AbstractPageStepDefinition {
 		driver.manage().window().maximize();
 	}
 	
-	@After
+/*	@After
 	public void testTearDown() {
 		driver.close();
-	}
+	}*/
 
 }
