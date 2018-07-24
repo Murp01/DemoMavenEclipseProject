@@ -15,12 +15,36 @@ public class CareersOurOpportunities extends AbstractPageStepDefinition{
 		PageFactory.initElements(driver, this);
 	}
 	
+	@FindBy(how = How.XPATH, xpath = "//div[@class='accordionGeneral ui-accordion ui-widget ui-helper-reset']/div/p")
+	private WebElement OurOpportAccord01Paragraph;
+	
+	@FindBy(how = How.XPATH, xpath = "//div[@class='accordionGeneral ui-accordion ui-widget ui-helper-reset']/h2[1]")
+	private WebElement OurOpportAccordion01;
+	
+	@FindBy(how = How.XPATH, xpath = "//div[@class='accordionGeneral ui-accordion ui-widget ui-helper-reset']/h2[2]")
+	private WebElement OurOpportAccordion02;
+	
 	@FindBy(how = How.XPATH, xpath = "//div[@class='breadcrumb']/ul/li[contains(text(),'Our opportunities')]")
-	private WebElement OurOpportunitiesBreadCrumb;
+	private WebElement OurOpportBreadCrumb;
 	
 	
+		
 	public void AssertBreadCrumbOurOpportunities(){
-		Assert.assertTrue(OurOpportunitiesBreadCrumb.isDisplayed());
+		Assert.assertTrue(OurOpportBreadCrumb.isDisplayed());
+	}
+	
+	public void AssertAccordion01Paragraph(){
+		String actualString = OurOpportAccord01Paragraph.getText();
+		System.out.println(actualString);
+		Assert.assertFalse(actualString.isEmpty());
+	}
+	
+	public void ClickAccordion01(){
+		OurOpportAccordion01.click();
+	}
+	
+	public void ClickAccordion02(){
+		OurOpportAccordion02.click();
 	}
 
 }
