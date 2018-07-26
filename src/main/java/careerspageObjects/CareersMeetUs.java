@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import cucumber.api.java.en.When;
 import stepDefinitions.AbstractPageStepDefinition;
 
 public class CareersMeetUs extends AbstractPageStepDefinition{
@@ -34,17 +35,31 @@ public class CareersMeetUs extends AbstractPageStepDefinition{
 	@FindBy(how = How.XPATH, xpath = "//div[@class='col-xs-12']")
 	private WebElement MeetUsEventSearchResultPane;
 	
+	@FindBy(how = How.XPATH, xpath = "//span[contains(text(),'Sort A-Z')]")
+	private WebElement MeetUsSortAZDropDown;
+	
+	@FindBy(how = How.XPATH, xpath = "//span[contains(text(),'Sort Z-A')]")
+	private WebElement MeetUsSortZADropDown;
 	
 	
 	
 	public void ClickKeywordSearchTerm(){
-		driver.findElement(By.xpath("//input[@class='string-search']")).click();
+		MeetUsKeywordSearchBox.click();
 	}
 	
 	public void EnterTextIntoKeywordSearch(String keyword){
 		driver.findElement(By.xpath("//input[@class='string-search']")).sendKeys(keyword);
+	}	
+	
+	public void ClickSortByAsc(){
+		MeetUsSortByDropDown.click();
+		MeetUsSortAZDropDown.click();
 	}
 	
+	public void ClickSortByDesc(){
+		MeetUsSortByDropDown.click();
+		MeetUsSortZADropDown.click();
+	}
 	
 	
 	
