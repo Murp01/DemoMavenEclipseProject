@@ -46,24 +46,12 @@ public class SD_Careers_Home extends AbstractPageStepDefinition{
 
 	}
 	
-	
-	
-	//Opening Homepage
-	
 	@Given("^asserts the UK Careers microsite homepage is open$")
 	public void asserts_the_UK_Careers_microsite_homepage_is_open() throws Throwable {
 		WebDriverWait wait =new WebDriverWait(driver,20);
 		wait.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/"));
 		wait.until(ExpectedConditions.titleIs("Linklaters Careers | Home"));
 	}
-	
-	@Given("^the user is on the Careers homepage$")
-	public void the_user_is_on_the_Careers_homepage() throws Throwable {	
-		
-		driver.get("https://careers.linklaters.com/");
-	}
-	
-	//Hero Video Player
 	
 	@Then("^the video hero banner will play automatically$")
 	public void the_video_hero_banner_will_play_automatically() throws Throwable {

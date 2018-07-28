@@ -1,5 +1,6 @@
 package careerspageObjects;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import junit.framework.Assert;
+
 import stepDefinitions.AbstractPageStepDefinition;
 
 public class CareersCommon extends AbstractPageStepDefinition{
@@ -76,6 +77,50 @@ public class CareersCommon extends AbstractPageStepDefinition{
 	@FindBy(how = How.XPATH, xpath = "//a[@href='/en/business-teams'][1]")
 	private WebElement Title03;
 	
+	@FindBy(how = How.XPATH, xpath = "//nav[@class='careersMode is-active']")
+	private WebElement ActiveSecondaryNav;
+	
+	@FindBy(how = How.XPATH, xpath = "//nav[@class='careersMode']")
+	private WebElement InactiveSecondaryNav;
+	
+	
+	public void assertGeoSel01(){
+		WebDriverWait  wait01 =new WebDriverWait(driver,5);
+		wait01.until(ExpectedConditions.urlMatches("https://allenscareers.linklaters.com/"));
+	}
+	
+	public void assertGeoSel02(){
+		WebDriverWait  wait02 =new WebDriverWait(driver,5);
+		wait02.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/fr-fr"));
+	}
+	
+	public void assertGeoSel03(){
+		WebDriverWait  wait03 =new WebDriverWait(driver,5);
+		wait03.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/it-it"));
+	}
+	
+	public void assertTitle01(){
+		WebDriverWait  wait01 =new WebDriverWait(driver,5);
+		wait01.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/en/early-careers"));
+	}
+		
+	public void assertTitle02(){
+		WebDriverWait  wait01 =new WebDriverWait(driver,5);
+		wait01.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/en/experienced-lawyers"));
+	}
+	
+	public void assertTitle03(){
+		WebDriverWait  wait01 =new WebDriverWait(driver,5);
+		wait01.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/en/business-teams"));
+	}
+	
+	public void assertSecNavInactive(){
+		
+	}
+	
+	public void assertSecNavActive(){
+		ActiveSecondaryNav.isDisplayed();
+	}
 	
 	public void clickSecCommercialAwareness(){
 		EarlyCareersToCommercialAwareness.click();
@@ -129,36 +174,6 @@ public class CareersCommon extends AbstractPageStepDefinition{
 		LlHomeButton.click();
 	}
 	
-	public void assertGeoSel01(){
-		WebDriverWait  wait01 =new WebDriverWait(driver,5);
-		wait01.until(ExpectedConditions.urlMatches("https://allenscareers.linklaters.com/"));
-	}
-	
-	public void assertGeoSel02(){
-		WebDriverWait  wait02 =new WebDriverWait(driver,5);
-		wait02.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/fr-fr"));
-	}
-	
-	public void assertGeoSel03(){
-		WebDriverWait  wait03 =new WebDriverWait(driver,5);
-		wait03.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/it-it"));
-	}
-		
-	public void assertTitle02(){
-		WebDriverWait  wait01 =new WebDriverWait(driver,5);
-		wait01.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/en/experienced-lawyers"));
-	}
-	
-	public void assertTitle03(){
-		WebDriverWait  wait01 =new WebDriverWait(driver,5);
-		wait01.until(ExpectedConditions.urlMatches("https://careers.linklaters.com/en/business-teams"));
-	}
-	
-	public void mouseOverGeoToggle(){
-		Actions action = new Actions(driver);
-		action.moveToElement(GeoToggle).click().build().perform();
-	}
-	
 	public void clickOnGeoSel01(){
 		Actions action = new Actions(driver);
 		action.moveToElement(GeoSelect01).click().build().perform();
@@ -194,10 +209,26 @@ public class CareersCommon extends AbstractPageStepDefinition{
 	    }
 	}
 	
-	public void mouseHoverTitle01(){
-		//CareersCommon careersCommon = new CareersCommon(driver);
+	public void mouseOverGeoToggle(){
+		Actions action = new Actions(driver);
+		action.moveToElement(GeoToggle).click().build().perform();
+	}
+	
+	public void mouseOverPrimeNavOne(){
 		Actions action = new Actions(driver);	
 		action.moveToElement(Title01).build().perform();
+		jsWaitforPageToLoad();
+	}
+	
+	public void mouseOverPrimeNavTwo(){
+		Actions action = new Actions(driver);	
+		action.moveToElement(Title02).build().perform();
+		jsWaitforPageToLoad();
+	}
+	
+	public void mouseOverPrimeNavThree(){
+		Actions action = new Actions(driver);	
+		action.moveToElement(Title03).build().perform();
 		jsWaitforPageToLoad();
 	}
 

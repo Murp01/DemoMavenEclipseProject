@@ -44,7 +44,7 @@ public class CareersMeetUs extends AbstractPageStepDefinition{
 	
 	
 	public void clickKeywordSearchTerm(){
-		MeetUsKeywordSearchBox.click();
+			MeetUsKeywordSearchBox.click();
 	}
 	
 	public void enterTextIntoKeywordSearch(String keyword){

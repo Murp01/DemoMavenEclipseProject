@@ -6,12 +6,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class InsightsPage {
+public class InsightsPagePOM {
 	
 	
 /*	Constructor that initalizes the InsightsPage page object.  While the test is running the driver will 
 	be passed into the constructor's argument.  this (I think) is the pageobject iself?*/	
-	public InsightsPage(WebDriver driver){
+	public InsightsPagePOM(WebDriver driver){
 		PageFactory.initElements(driver, this);
 		}
 

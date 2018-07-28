@@ -20,8 +20,8 @@ public class SD_Careers_MeetUs extends AbstractPageStepDefinition {
 	}
 
 	@When("^typing \"([^\"]*)\" into the Events keyword searchbox$")
-	public void typing_into_the_Events_keyword_searchbox(String keyword) throws Throwable {
-		careersMeetUs = new CareersMeetUs(driver);
+	public void typing_into_the_Events_keyword_searchbox(String keyword) throws Exception {
+		careersMeetUs = new CareersMeetUs(driver);		
 		careersMeetUs.enterTextIntoKeywordSearch(keyword);
 	}
 
