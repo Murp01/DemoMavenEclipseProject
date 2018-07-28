@@ -27,19 +27,19 @@ public class CareersOurPeople extends AbstractPageStepDefinition{
 	private WebElement OurPeopBreadCrumb;
 	
 	
-	public void AssertBreadCrumbOurPeople(){
+	public void assertBreadCrumbOurPeople(){
 		Assert.assertTrue(OurPeopBreadCrumb.isDisplayed());
 	}
 	
-	public void ClickPerson01Name(){
+	public void clickPerson01Name(){
 		OurPeopPersonName01.click();
 	}
 	
-	public void ClickPerson02Name(){
+	public void clickPerson02Name(){
 		OurPeopPersonName02.click();
 	}
 	
-	public void ClickPerson03Name(){
+public void clickPerson03Name(){
 		OurPeopPersonName03.click();
 	}
 	

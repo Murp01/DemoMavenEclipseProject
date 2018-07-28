@@ -16,13 +16,13 @@ public class SD_Careers_MeetUs extends AbstractPageStepDefinition {
 	@Given("^clicking in the Events keyword searchbox$")
 	public void clicking_in_the_Events_keyword_searchbox() throws Throwable {
 		careersMeetUs = new CareersMeetUs(driver);
-		careersMeetUs.ClickKeywordSearchTerm();
+		careersMeetUs.clickKeywordSearchTerm();
 	}
 
 	@When("^typing \"([^\"]*)\" into the Events keyword searchbox$")
 	public void typing_into_the_Events_keyword_searchbox(String keyword) throws Throwable {
 		careersMeetUs = new CareersMeetUs(driver);
-		careersMeetUs.EnterTextIntoKeywordSearch(keyword);
+		careersMeetUs.enterTextIntoKeywordSearch(keyword);
 	}
 
 	@Then("^articles matching the search term will be displayed in the Events searchbox$")
@@ -39,10 +39,10 @@ public class SD_Careers_MeetUs extends AbstractPageStepDefinition {
 	public void selecting_from_the_Sort_By_drop_down_selector(String selection) throws Throwable {
 		careersMeetUs = new CareersMeetUs(driver);	
 		if (selection.equals("Sort A-Z")){
-			careersMeetUs.ClickSortByAsc();
+			careersMeetUs.clickSortByAsc();
 		}
 		else if (selection.equals("Sort Z-A")){
-			careersMeetUs.ClickSortByDesc();
+			careersMeetUs.clickSortByDesc();
 		}
 		else{
 			System.out.println("Throws exception");

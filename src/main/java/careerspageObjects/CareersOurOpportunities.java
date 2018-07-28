@@ -29,21 +29,21 @@ public class CareersOurOpportunities extends AbstractPageStepDefinition{
 	
 	
 		
-	public void AssertBreadCrumbOurOpportunities(){
+	public void assertBreadCrumbOurOpportunities(){
 		Assert.assertTrue(OurOpportBreadCrumb.isDisplayed());
 	}
 	
-	public void AssertAccordion01Paragraph(){
+	public void assertAccordion01Paragraph(){
 		String actualString = OurOpportAccord01Paragraph.getText();
 		System.out.println(actualString);
 		Assert.assertFalse(actualString.isEmpty());
 	}
 	
-	public void ClickAccordion01(){
+	public void clickAccordion01(){
 		OurOpportAccordion01.click();
 	}
 	
-	public void ClickAccordion02(){
+	public void clickAccordion02(){
 		OurOpportAccordion02.click();
 	}
 

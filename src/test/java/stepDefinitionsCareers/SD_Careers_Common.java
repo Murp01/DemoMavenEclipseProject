@@ -47,7 +47,7 @@ public class SD_Careers_Common extends AbstractPageStepDefinition {
 				careersCommon.mouseHoverTitle01();
 				careersCommon.clickSecOurOpportunites();
 				careersOurOpportunities = new CareersOurOpportunities(driver);
-				careersOurOpportunities.AssertBreadCrumbOurOpportunities();
+				careersOurOpportunities.assertBreadCrumbOurOpportunities();
 				break;
 			case "Our people":
 				careersCommon = new CareersCommon(driver);

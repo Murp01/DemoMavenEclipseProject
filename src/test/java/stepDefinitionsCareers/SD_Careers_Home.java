@@ -68,7 +68,7 @@ public class SD_Careers_Home extends AbstractPageStepDefinition{
 	@Then("^the video hero banner will play automatically$")
 	public void the_video_hero_banner_will_play_automatically() throws Throwable {
 		careersHomePage = new CareersHomePage(driver);
-		careersHomePage.AssertHeroVideoAutoPlay();
+		careersHomePage.assertHeroVideoAutoPlay();
 	}
 	
 	@When("^clicking pause on the video hero banner$")

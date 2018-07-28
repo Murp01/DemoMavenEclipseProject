@@ -18,10 +18,10 @@ public class SD_Careers_OurOpportunities extends AbstractPageStepDefinition{
 		careersOurOpportunities = new CareersOurOpportunities(driver);
 		switch(link){
 		case "first":
-			careersOurOpportunities.ClickAccordion01();
+			careersOurOpportunities.clickAccordion01();
 			break;
 		case "second":
-			careersOurOpportunities.ClickAccordion02();
+			careersOurOpportunities.clickAccordion02();
 			break;
 		}
 	}
@@ -31,7 +31,7 @@ public class SD_Careers_OurOpportunities extends AbstractPageStepDefinition{
 		careersOurOpportunities = new CareersOurOpportunities(driver);
 		switch(link){
 		case "first":
-			careersOurOpportunities.AssertAccordion01Paragraph();
+			careersOurOpportunities.assertAccordion01Paragraph();
 			break;
 		case "second":
 			break;

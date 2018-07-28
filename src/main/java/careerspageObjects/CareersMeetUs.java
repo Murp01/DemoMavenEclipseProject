@@ -43,20 +43,20 @@ public class CareersMeetUs extends AbstractPageStepDefinition{
 	
 	
 	
-	public void ClickKeywordSearchTerm(){
+	public void clickKeywordSearchTerm(){
 		MeetUsKeywordSearchBox.click();
 	}
 	
-	public void EnterTextIntoKeywordSearch(String keyword){
+	public void enterTextIntoKeywordSearch(String keyword){
 		driver.findElement(By.xpath("//input[@class='string-search']")).sendKeys(keyword);
 	}	
 	
-	public void ClickSortByAsc(){
+	public void clickSortByAsc(){
 		MeetUsSortByDropDown.click();
 		MeetUsSortAZDropDown.click();
 	}
 	
-	public void ClickSortByDesc(){
+	public void clickSortByDesc(){
 		MeetUsSortByDropDown.click();
 		MeetUsSortZADropDown.click();
 	}
