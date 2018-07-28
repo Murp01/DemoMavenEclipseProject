@@ -1,34 +1,27 @@
 Feature: Primary Navigation
-	
-Scenario: Click on Linklaters home button
-	Given the user is on the Careers homepage
-	And clicking on the "Title03" title from the careers primary navigation
-	When clicking on the Linklaters home button		
-	Then the user is on the Careers homepage
-		
-Scenario: Click on Linklaters home button for each language
-	Given the user is on the Careers homepage
-	When "Location01" is selected from the location select drop down box
-	Then the "Location01" version of the site will be opened
-	
-		
-Scenario: Click on each primary navigation title
-	Given the user is on the Careers homepage
-	When clicking on the "Title03" title from the careers primary navigation
-	Then "Title03" careers page is open
-	And clicking on the Linklaters home button		
-		
-Scenario: Select languages from the primary navigation
-	Given the user is on the Careers homepage
-	When "Location01" is selected from the location select drop down box
-	Then the "Location01" version of the site will be opened
-		
 
-Scenario: Apply for an Early Careers role
+Scenario: Open all stacked tabs DT
 	Given the user is on the Careers homepage
-	
-
-Scenario: Click on all secondary navigation titles in title01
-	Given the user is on the Careers homepage
+	And clicking on "Meet Us" from "Title01"
 	And clicking on "Our opportunities" from "Title01"
+	And clicking on "Our people" from "Title01"
+	And clicking on "Commercial Awareness" from "Title01"
+	And clicking on "Our Work" from "Title01"
+	And clicking on "Your Career" from "Title01"
+	And clicking on "Your Application" from "Title01"
+	And clicking on "Our Deals" from "Title01"
+	And clicking on "Why Join" from "Title01"
+	And clicking on "Who we are" from "Title01"
+
+#use data table for above	
+ 
+
+Scenario Outline: Open all stacked tabs
+	Given the user is on the Careers homepage
+	And clicking on <SecNavTitle> from "Title01"
+	Examples:
+	|SecNavTitle|
+	|Meet Us|
+	|Our opportunities|
+	|Our people|
 

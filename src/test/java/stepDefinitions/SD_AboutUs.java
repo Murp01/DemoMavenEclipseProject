@@ -7,17 +7,52 @@ import org.openqa.selenium.WebDriver;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import pageObjects.Common;
+import pageObjects.AboutUsPOM;
+import pageObjects.CommonPOM;
 
 public class SD_AboutUs extends AbstractPageStepDefinition{
 	WebDriver driver = getDriver();
-	Common common; 
+	CommonPOM commonPOM; 
+	AboutUsPOM aboutUsPOM;
 	
-/*	@Given("^locates the accordian widget$")
-	public void locates_the_accordian_widget() throws Throwable {
-		Assert.assertTrue("Accordian found on page.", driver.findElement(By.xpath("//div[@class='accordionGeneral ui-accordion ui-widget ui-helper-reset']/h2[1]")).isDisplayed());
-		//Where is message?
-	}*/
+	@Then("^asserts the accordion module is located on the page$")
+	public void asserts_the_accordion_module_is_located_on_the_page() throws Throwable {
+		aboutUsPOM = new AboutUsPOM(driver);
+		aboutUsPOM.assertAccordionModule();
+	}
+	
+	@Then("^asserts \"([^\"]*)\" accordion content is visible$")
+	public void asserts_accordion_content_is_visible(String content) throws Throwable {
+		aboutUsPOM = new AboutUsPOM(driver);
+		switch(content){
+		case "Tab01":
+			aboutUsPOM.assertAccordionContent01Displayed();
+			break;
+		case "Tab02":
+
+			break;
+		case "Tab03":
+
+			break;
+		}
+	}
+	
+	@Then("^asserts \"([^\"]*)\" accodion content is hidden$")
+	public void asserts_accodion_content_is_hidden(String content) throws Throwable {
+		aboutUsPOM = new AboutUsPOM(driver);
+		switch(content){
+		case "Tab01":
+			aboutUsPOM.assertAccordionContent01IsHidden();
+			break;
+		case "Tab02":
+
+			break;
+		case "Tab03":
+
+			break;
+		}
+	}
+
 	
 	@Then("^the \"([^\"]*)\" topic will open$")
 	public void the_topic_will_open(String link) throws Throwable {
@@ -44,6 +79,23 @@ public class SD_AboutUs extends AbstractPageStepDefinition{
 			Assert.assertTrue("Seventh topic is open", driver.findElement(By.xpath("[7]")).isDisplayed());
 			break;	
 		}
+	}
+	
+	@Then("^clicks on \"([^\"]*)\" of the accordion module$")
+	public void clicks_on_of_the_accordion_module(String tab) throws Throwable {
+		aboutUsPOM = new AboutUsPOM(driver);
+		switch(tab){
+		case "Tab01":
+			aboutUsPOM.clickAccordionTab01();
+			break;
+		case "Tab02":
+			aboutUsPOM.clickAccordionTab02();
+			break;
+		case "Tab03":
+			aboutUsPOM.clickAccordionTab03();
+			break;
+		}
+		
 	}
 	
 	@When("^clicking on the \"([^\"]*)\" topic$")

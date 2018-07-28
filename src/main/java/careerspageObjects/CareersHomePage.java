@@ -22,7 +22,7 @@ public class CareersHomePage extends AbstractPageStepDefinition{
 	
 	
 	
-	public void AssertHeroVideoAutoPlay(){
+	public void assertHeroVideoAutoPlay(){
 		Assert.assertTrue(CrVideoProgBar.getAttribute("value") != null);
 	}
 

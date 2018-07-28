@@ -1,26 +1,24 @@
 package stepDefinitionsCareers;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import java.util.concurrent.TimeUnit;
 
-public class SD_Careers_Hooks {
+import org.openqa.selenium.WebDriver;
+
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
+import stepDefinitions.AbstractPageStepDefinition;
+
+public class SD_Careers_Hooks extends AbstractPageStepDefinition {
+	WebDriver driver = getDriver();
 	
-/*	@Before
-	public void setUp()
-	{
-		System.out.println("Testing test set up");
+	@Before
+	public void testSetUp() {
+		driver.manage().window().maximize();
 	}
 	
-	@After
-	public void testTearDown()
-	{
-		System.out.println("Testing tear down");
+/*	@After
+	public void testTearDown() {
+		driver.close();
 	}*/
-	
-/*    @BeforeClass
-    public static void setUpClass() {
-    	System.out.println("Testing set up");
-    }*/
 
 }

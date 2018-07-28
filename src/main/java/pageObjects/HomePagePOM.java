@@ -6,9 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+public class HomePagePOM {
 
-	public HomePage(WebDriver driver) {
+	public HomePagePOM(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 	

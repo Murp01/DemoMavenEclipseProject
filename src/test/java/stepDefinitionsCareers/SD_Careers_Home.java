@@ -1,4 +1,4 @@
-package stepDefinitionsCareers;
+ package stepDefinitionsCareers;
 
 import java.util.concurrent.TimeUnit;
 
@@ -46,10 +46,6 @@ public class SD_Careers_Home extends AbstractPageStepDefinition{
 
 	}
 	
-	
-	
-	//Opening Homepage
-	
 	@Given("^asserts the UK Careers microsite homepage is open$")
 	public void asserts_the_UK_Careers_microsite_homepage_is_open() throws Throwable {
 		WebDriverWait wait =new WebDriverWait(driver,20);
@@ -57,19 +53,10 @@ public class SD_Careers_Home extends AbstractPageStepDefinition{
 		wait.until(ExpectedConditions.titleIs("Linklaters Careers | Home"));
 	}
 	
-	@Given("^the user is on the Careers homepage$")
-	public void the_user_is_on_the_Careers_homepage() throws Throwable {
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);	
-		driver.manage().window().maximize();
-		driver.get("https://careers.linklaters.com/");
-	}
-	
-	//Hero Video Player
-	
 	@Then("^the video hero banner will play automatically$")
 	public void the_video_hero_banner_will_play_automatically() throws Throwable {
 		careersHomePage = new CareersHomePage(driver);
-		careersHomePage.AssertHeroVideoAutoPlay();
+		careersHomePage.assertHeroVideoAutoPlay();
 	}
 	
 	@When("^clicking pause on the video hero banner$")
