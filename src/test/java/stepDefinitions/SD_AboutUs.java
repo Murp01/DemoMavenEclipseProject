@@ -26,7 +26,7 @@ public class SD_AboutUs extends AbstractPageStepDefinition{
 	@Given("^asserts people widget is visible on the page$")
 	public void asserts_people_widget_is_visible_on_the_page() throws Throwable {
 		aboutUsPOM = new AboutUsPOM(driver);
-		aboutUsPOM.assertPeopleModuleContainer();
+		aboutUsPOM.assertPeopleModuleContainer();		
 	}
 	
 	@Then("^asserts \"([^\"]*)\" accordion content is visible$")
@@ -89,6 +89,8 @@ public class SD_AboutUs extends AbstractPageStepDefinition{
 			break;
 		}	
 	}
+	
+
 
 
 }

@@ -19,6 +19,7 @@ public class AboutUsPOM extends AbstractPageStepDefinition{
 	
 	WebDriver driver = getDriver();
 	CommonPOM commonPOM;
+	String people01Name;
 	
 	@FindBy(how = How.XPATH, xpath = "//div[@class='accordionGeneral ui-accordion ui-widget ui-helper-reset']/h2[1]")
 	private WebElement accordionModule;
@@ -90,6 +91,11 @@ public class AboutUsPOM extends AbstractPageStepDefinition{
 		
 	public void assertPeopleModuleContainer(){
 		Assert.assertTrue(peopleWidgetContainer.isDisplayed());
+	}
+	
+	public String captureName01PeopleWidget(String people01Name){
+		return peopleWidgetName01.getText();
+		//Look this up
 	}
 	
 	public void clickAccordionTab01(){
