@@ -1,15 +1,14 @@
-Feature: Automated End2End Tests
+Feature: Test feature
 Description:
 
 @Trythis
-Scenario: Open Insights article detail page
+Scenario: Click on all people module profiles
 	Given the user is on the homepage
 	And clicks on the "About Us" link in the primary navigation
-	Then asserts the accordion module is located on the page
-	And clicks on "Tab01" of the accordion module
-	Then asserts "Tab01" accordion content is visible
-	And clicks on "Tab01" of the accordion module
-	Then asserts "Tab01" accodion content is hidden
+	And asserts people widget is visible on the page
+	And clicks on the "first" characters profile 
+	#Try capturing name text for profile first and assert it matches a string, then click, then assert the name is on page
+
 
 
 
