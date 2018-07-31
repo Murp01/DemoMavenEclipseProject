@@ -43,6 +43,17 @@ public class CommonPOM extends AbstractPageStepDefinition {
 	@FindBy(how = How.XPATH, xpath = "//div[@class='notification-wrapper cookieWrapper']/div/div/div[@class='notification-close']")
 	private WebElement header_CookieBannerCloseClick;
 	
+	@FindBy(how = How.XPATH, xpath = "//button[contains(text(),'Print as a PDF')]")
+	private WebElement printASPDFButton;
+	
+	@FindBy(how = How.XPATH, xpath = "//span[@class='icon-print']")
+	private WebElement printButton;
+		
+	@FindBy(how = How.XPATH, xpath = "//button[contains(text(),'Close')]")
+	private WebElement printCloseButton;
+	
+	@FindBy(how = How.XPATH, xpath = "//button[contains(text(),'Print web page')]")
+	private WebElement printWebpageButton;
 	
 	public void assertFalseCookieBanner(){
 		//doesn't work
@@ -72,6 +83,22 @@ public class CommonPOM extends AbstractPageStepDefinition {
 	
 	public void clickInsightTitle(){
 		header_Insights.click();
+	}
+	
+	public void clickPrintButton(){
+		printButton.click();
+	}
+	
+	public void clickPrintAsPDF(){
+		printASPDFButton.click();
+	}
+	
+	public void clickPrintCloseBtn(){
+		printCloseButton.click();
+	}
+	
+	public void clickPrintWebpageBtn(){
+		printWebpageButton.click();
 	}
 	
 	public void clickSearchInput(){

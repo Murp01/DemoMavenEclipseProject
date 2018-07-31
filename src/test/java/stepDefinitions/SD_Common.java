@@ -40,12 +40,47 @@ public class SD_Common extends AbstractPageStepDefinition{
 		common.assertTrueSearchInput();
 	}
 	
+	@When("^assert the print option pop up menu appears$")
+	public void assert_the_print_option_pop_up_menu_appears() throws Throwable {
+		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='modal-body']")).isEnabled());
+	}
+	
+	@Then("^assert the print option pop up menu closes$")
+	public void assert_the_print_option_pop_up_menu_closes() throws Throwable {
+		Assert.assertFalse(driver.findElement(By.xpath("//div[@class='modal-body']")).isEnabled());
+	}
+	
+	@Then("^assert the print setting window will open$")
+	public void assert_the_print_setting_window_will_open() throws Throwable {
+		
+	}
+	
 	@Then("^Assert that the url contains \"([^\"]*)\"$")
 	public void assert_the_url_contains(String title) throws Throwable {
 		Assert.assertTrue(driver.getTitle().contains(title));
 	}
 	
-
+	@When("^clicking on the print button$")
+	public void clicking_on_the_print_button() throws Throwable {
+		CommonPOM common = new CommonPOM(driver);
+		common.clickPrintButton();
+	}
+	
+	@When("^clicking on \"([^\"]*)\" from the print pop up menu$")
+	public void clicking_on_from_the_print_pop_up_menu(String button) throws Throwable {
+		CommonPOM common = new CommonPOM(driver);
+		switch(button) {
+		case "PRINT WEB PAGE":
+			common.clickPrintWebpageBtn();
+			break;
+		case "PRINT AS A PDF":
+			common.clickPrintAsPDF();
+			break;		
+		case "CLOSE":
+			common.clickPrintCloseBtn();
+			break;			
+		}
+	}
 	
 	@Given("^clicks the close button on the cookie banner$")
 	public void clicks_on_close_button_on_the_cookie_banner() throws Throwable {
@@ -147,6 +182,7 @@ public class SD_Common extends AbstractPageStepDefinition{
 		driver.findElement(By.xpath("/html/body/nav/div/div[6]/ul[3]/li/a")).click();
 	}
 	
+
 
 
 
