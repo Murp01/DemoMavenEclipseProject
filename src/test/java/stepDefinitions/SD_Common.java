@@ -140,6 +140,34 @@ public class SD_Common extends AbstractPageStepDefinition{
 		}
 	}
 	
+	@Given("^hovers over \"([^\"]*)\" from the primary navigation$")
+	public void hovers_over_from_the_primary_navigation(String title) throws Throwable {
+		common = new CommonPOM(driver);
+		switch(title){
+		case "About Us":			
+			common.mouseOverAboutUsTitle();
+			break;
+		case "Client Services":
+			common.mouseOverClientServicesTitle();
+			break;			
+		case "Sectors":
+			common.mouseOverSectorsTitle();
+			break;			
+		case "Find People":	
+			common.mouseOverFindPeopleTitle();
+			break;
+		case "Locations":
+			common.mouseOverLocationsTitle();
+			break;			
+		case "Insights":
+			common.mouseOverInsightTitle();
+			break;			
+		case "Careers":
+			common.mouseOverCareersTitle();
+			break;
+		}
+	}
+	
 	@Given("^hovers over the About Us title and selects \"([^\"]*)\"$")
 	public void mouse_over_the_About_Us_title_and_selects(String link) throws Throwable {
 		switch(link) {

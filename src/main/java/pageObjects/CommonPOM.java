@@ -21,15 +21,32 @@ public class CommonPOM extends AbstractPageStepDefinition {
 	}
 	
 	WebDriver driver = getDriver();
+	Actions action = new Actions(driver);
+
 	
 	@FindBy(how = How.XPATH, xpath = "//div[@class='header__navDesktop']/ul/li/a[@href='/en/about-us']")
 	private WebElement header_AboutUs;
 	
+	@FindBy(how = How.XPATH, xpath ="//div[@class='header__navDesktop']/ul/li/a[@href='/en/careers']")
+	private WebElement header_Careers;
+	
+	@FindBy(how = How.XPATH, xpath = "//div[@class='header__navDesktop']/ul/li/a[@href='/en/client-services']")
+	private WebElement header_ClientServices;
+	
 	@FindBy(how = How.XPATH, xpath = "//li/a[@href='/en/about-us/alumni']")
 	private WebElement header_AboutUs_Alumni;
 	
+	@FindBy(how = How.XPATH, xpath = "//div[@class='header__navDesktop']/ul/li/a[@href='/en/find-a-lawyer']")
+	private WebElement header_FindPeople;	
+	
 	@FindBy(how = How.XPATH, xpath ="/html/body/header/div/div/div/ul/li[6]/a")
 	private WebElement header_Insights;
+	
+	@FindBy(how = How.XPATH, xpath ="//div[@class='header__navDesktop']/ul/li/a[@href='/en/locations']")
+	private WebElement header_Locations;
+	
+	@FindBy(how = How.XPATH, xpath ="//div[@class='header__navDesktop']/ul/li/a[@href='/en/sectors']")
+	private WebElement header_Sectors;
 	
 	@FindBy(how = How.XPATH, xpath = "//input[@class='header__searchInput']")
 	private WebElement header_SearchInput;
@@ -113,10 +130,30 @@ public class CommonPOM extends AbstractPageStepDefinition {
 		Actions builder = new Actions(driver);
 		builder.moveToElement(header_AboutUs).build().perform();
 	}
+	
+	public void mouseOverCareersTitle(){
+		action.moveToElement(header_Careers).perform();
+	}
+	
+	public void mouseOverClientServicesTitle(){
+		action.moveToElement(header_ClientServices).perform();
+	}
+	
+	public void mouseOverFindPeopleTitle(){
+		action.moveToElement(header_FindPeople).perform();
+	}
 		
 	public void mouseOverInsightTitle(){
 		Actions builder = new Actions(driver);
 		builder.moveToElement(header_Insights).build().perform();
+	}
+	
+	public void mouseOverLocationsTitle(){
+		action.moveToElement(header_Locations).perform();
+	}
+	
+	public void mouseOverSectorsTitle(){
+		action.moveToElement(header_Sectors).perform();
 	}
 	
 	public void sendKeysSearchInput(){

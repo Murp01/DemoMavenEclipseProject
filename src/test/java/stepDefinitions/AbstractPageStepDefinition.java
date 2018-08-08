@@ -17,7 +17,6 @@ public class AbstractPageStepDefinition {
 	
 	protected WebDriver getDriver(){
 		if (driver == null){
-			//System.setProperty("webdriver.chrome.driver", "C:\\Webdrivers\\chromedriver_win32\\chromedriver.exe");
 			System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\Webdrivers\\chromedriver_win32\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}
