@@ -94,12 +94,28 @@ public class CommonPOM extends AbstractPageStepDefinition {
 		((JavascriptExecutor)driver).executeScript("arguments[0].click()", header_AboutUs);
 	}
 	
+	public void clickCareersTitle(){
+		header_Careers.click();
+	}
+	
+	public void clickClientServices(){
+		header_ClientServices.click();
+	}
+	
 	public void clickCookieBannerCloseBtn(){
 		header_CookieBannerCloseClick.click();
 	}
 	
+	public void clickFindPeopleTitle(){
+		header_FindPeople.click();
+	}
+	
 	public void clickInsightTitle(){
 		header_Insights.click();
+	}
+	
+	public void clickLocationsTitle(){
+		header_Locations.click();
 	}
 	
 	public void clickPrintButton(){
@@ -124,6 +140,10 @@ public class CommonPOM extends AbstractPageStepDefinition {
 	
 	public void clickSearchToggle(){
 		header_SearchToggle.click();
+	}
+	
+	public void clickSectorsTitle(){
+		header_Sectors.click();
 	}
 	
 	public void mouseOverAboutUsTitle(){

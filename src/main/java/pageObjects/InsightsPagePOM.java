@@ -50,9 +50,7 @@ public class InsightsPagePOM {
 		}
 		else {
 			System.out.println("Where is it?");
-		}
-		
-		
+		}		
 	}
 	
 	

@@ -112,30 +112,30 @@ public class SD_Common extends AbstractPageStepDefinition{
 	
 	@When("^clicks on the \"([^\"]*)\" link in the primary navigation$")
 	public void clicks_on_the_link_in_the_primary_navigation(String link) throws Throwable {
-		switch(link) {
-		case "About Us":
-			CommonPOM common = new CommonPOM(driver);
+		CommonPOM common = new CommonPOM(driver);
+		switch(link) {		
+		case "About Us":			
 			System.out.println(link);
 			common.clickAboutUsTitle();
 			common.jsWaitforPageToLoad();
 			break;
 		case "Client Services":
-			driver.findElement(By.xpath("//a[@href='/en/client-services'][1]")).click();
+			common.clickClientServices();
 			break;
 		case "Sectors":
-			driver.findElement(By.xpath("//a[@href='/en/sectors'][1]")).click();
+			common.clickSectorsTitle();
 			break;
-		case "Find a Lawyer":
-			driver.findElement(By.xpath("//a[@href='/en/find-a-lawyer'][1]")).click();
+		case "Find People":
+			common.clickFindPeopleTitle();
 			break;
 		case "Locations":
-			driver.findElement(By.xpath("//a[@href='/en/locations'][1]")).click();
+			common.clickLocationsTitle();
 			break;
 		case "Insights":
-			driver.findElement(By.xpath("//a[@href='/en/insights'][1]")).click();
+			common.clickInsightTitle();
 			break;
 		case "Careers":
-			driver.findElement(By.xpath("//a[@href='/en/careers'][1]")).click();
+			common.clickCareersTitle();
 			break;	
 		}
 	}

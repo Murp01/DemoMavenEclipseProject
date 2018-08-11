@@ -4,7 +4,10 @@ Description:
 @Trythis
 Scenario: Find people dropdown search
 	Given the user is on the homepage
-	And hovers over "Sectors" from the primary navigation
+	And clicks on the "Find People" link in the primary navigation
+	And Types "Michael" into the name input field
+	And asserts all returned profiles names contain the word "Michael"
+
 
 
 
