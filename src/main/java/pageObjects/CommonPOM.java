@@ -21,15 +21,32 @@ public class CommonPOM extends AbstractPageStepDefinition {
 	}
 	
 	WebDriver driver = getDriver();
+	Actions action = new Actions(driver);
+
 	
 	@FindBy(how = How.XPATH, xpath = "//div[@class='header__navDesktop']/ul/li/a[@href='/en/about-us']")
 	private WebElement header_AboutUs;
 	
+	@FindBy(how = How.XPATH, xpath ="//div[@class='header__navDesktop']/ul/li/a[@href='/en/careers']")
+	private WebElement header_Careers;
+	
+	@FindBy(how = How.XPATH, xpath = "//div[@class='header__navDesktop']/ul/li/a[@href='/en/client-services']")
+	private WebElement header_ClientServices;
+	
 	@FindBy(how = How.XPATH, xpath = "//li/a[@href='/en/about-us/alumni']")
 	private WebElement header_AboutUs_Alumni;
 	
+	@FindBy(how = How.XPATH, xpath = "//div[@class='header__navDesktop']/ul/li/a[@href='/en/find-a-lawyer']")
+	private WebElement header_FindPeople;	
+	
 	@FindBy(how = How.XPATH, xpath ="/html/body/header/div/div/div/ul/li[6]/a")
 	private WebElement header_Insights;
+	
+	@FindBy(how = How.XPATH, xpath ="//div[@class='header__navDesktop']/ul/li/a[@href='/en/locations']")
+	private WebElement header_Locations;
+	
+	@FindBy(how = How.XPATH, xpath ="//div[@class='header__navDesktop']/ul/li/a[@href='/en/sectors']")
+	private WebElement header_Sectors;
 	
 	@FindBy(how = How.XPATH, xpath = "//input[@class='header__searchInput']")
 	private WebElement header_SearchInput;
@@ -43,6 +60,17 @@ public class CommonPOM extends AbstractPageStepDefinition {
 	@FindBy(how = How.XPATH, xpath = "//div[@class='notification-wrapper cookieWrapper']/div/div/div[@class='notification-close']")
 	private WebElement header_CookieBannerCloseClick;
 	
+	@FindBy(how = How.XPATH, xpath = "//button[contains(text(),'Print as a PDF')]")
+	private WebElement printASPDFButton;
+	
+	@FindBy(how = How.XPATH, xpath = "//span[@class='icon-print']")
+	private WebElement printButton;
+		
+	@FindBy(how = How.XPATH, xpath = "//button[contains(text(),'Close')]")
+	private WebElement printCloseButton;
+	
+	@FindBy(how = How.XPATH, xpath = "//button[contains(text(),'Print web page')]")
+	private WebElement printWebpageButton;
 	
 	public void assertFalseCookieBanner(){
 		//doesn't work
@@ -66,12 +94,44 @@ public class CommonPOM extends AbstractPageStepDefinition {
 		((JavascriptExecutor)driver).executeScript("arguments[0].click()", header_AboutUs);
 	}
 	
+	public void clickCareersTitle(){
+		header_Careers.click();
+	}
+	
+	public void clickClientServices(){
+		header_ClientServices.click();
+	}
+	
 	public void clickCookieBannerCloseBtn(){
 		header_CookieBannerCloseClick.click();
 	}
 	
+	public void clickFindPeopleTitle(){
+		header_FindPeople.click();
+	}
+	
 	public void clickInsightTitle(){
 		header_Insights.click();
+	}
+	
+	public void clickLocationsTitle(){
+		header_Locations.click();
+	}
+	
+	public void clickPrintButton(){
+		printButton.click();
+	}
+	
+	public void clickPrintAsPDF(){
+		printASPDFButton.click();
+	}
+	
+	public void clickPrintCloseBtn(){
+		printCloseButton.click();
+	}
+	
+	public void clickPrintWebpageBtn(){
+		printWebpageButton.click();
 	}
 	
 	public void clickSearchInput(){
@@ -82,14 +142,38 @@ public class CommonPOM extends AbstractPageStepDefinition {
 		header_SearchToggle.click();
 	}
 	
+	public void clickSectorsTitle(){
+		header_Sectors.click();
+	}
+	
 	public void mouseOverAboutUsTitle(){
 		Actions builder = new Actions(driver);
 		builder.moveToElement(header_AboutUs).build().perform();
+	}
+	
+	public void mouseOverCareersTitle(){
+		action.moveToElement(header_Careers).perform();
+	}
+	
+	public void mouseOverClientServicesTitle(){
+		action.moveToElement(header_ClientServices).perform();
+	}
+	
+	public void mouseOverFindPeopleTitle(){
+		action.moveToElement(header_FindPeople).perform();
 	}
 		
 	public void mouseOverInsightTitle(){
 		Actions builder = new Actions(driver);
 		builder.moveToElement(header_Insights).build().perform();
+	}
+	
+	public void mouseOverLocationsTitle(){
+		action.moveToElement(header_Locations).perform();
+	}
+	
+	public void mouseOverSectorsTitle(){
+		action.moveToElement(header_Sectors).perform();
 	}
 	
 	public void sendKeysSearchInput(){

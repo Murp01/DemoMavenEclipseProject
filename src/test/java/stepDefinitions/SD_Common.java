@@ -40,12 +40,47 @@ public class SD_Common extends AbstractPageStepDefinition{
 		common.assertTrueSearchInput();
 	}
 	
+	@When("^assert the print option pop up menu appears$")
+	public void assert_the_print_option_pop_up_menu_appears() throws Throwable {
+		Assert.assertTrue(driver.findElement(By.xpath("//div[@class='modal-body']")).isEnabled());
+	}
+	
+	@Then("^assert the print option pop up menu closes$")
+	public void assert_the_print_option_pop_up_menu_closes() throws Throwable {
+		Assert.assertFalse(driver.findElement(By.xpath("//div[@class='modal-body']")).isEnabled());
+	}
+	
+	@Then("^assert the print setting window will open$")
+	public void assert_the_print_setting_window_will_open() throws Throwable {
+		
+	}
+	
 	@Then("^Assert that the url contains \"([^\"]*)\"$")
 	public void assert_the_url_contains(String title) throws Throwable {
 		Assert.assertTrue(driver.getTitle().contains(title));
 	}
 	
-
+	@When("^clicking on the print button$")
+	public void clicking_on_the_print_button() throws Throwable {
+		CommonPOM common = new CommonPOM(driver);
+		common.clickPrintButton();
+	}
+	
+	@When("^clicking on \"([^\"]*)\" from the print pop up menu$")
+	public void clicking_on_from_the_print_pop_up_menu(String button) throws Throwable {
+		CommonPOM common = new CommonPOM(driver);
+		switch(button) {
+		case "PRINT WEB PAGE":
+			common.clickPrintWebpageBtn();
+			break;
+		case "PRINT AS A PDF":
+			common.clickPrintAsPDF();
+			break;		
+		case "CLOSE":
+			common.clickPrintCloseBtn();
+			break;			
+		}
+	}
 	
 	@Given("^clicks the close button on the cookie banner$")
 	public void clicks_on_close_button_on_the_cookie_banner() throws Throwable {
@@ -77,31 +112,59 @@ public class SD_Common extends AbstractPageStepDefinition{
 	
 	@When("^clicks on the \"([^\"]*)\" link in the primary navigation$")
 	public void clicks_on_the_link_in_the_primary_navigation(String link) throws Throwable {
-		switch(link) {
-		case "About Us":
-			CommonPOM common = new CommonPOM(driver);
+		CommonPOM common = new CommonPOM(driver);
+		switch(link) {		
+		case "About Us":			
 			System.out.println(link);
 			common.clickAboutUsTitle();
 			common.jsWaitforPageToLoad();
 			break;
 		case "Client Services":
-			driver.findElement(By.xpath("//a[@href='/en/client-services'][1]")).click();
+			common.clickClientServices();
 			break;
 		case "Sectors":
-			driver.findElement(By.xpath("//a[@href='/en/sectors'][1]")).click();
+			common.clickSectorsTitle();
 			break;
-		case "Find a Lawyer":
-			driver.findElement(By.xpath("//a[@href='/en/find-a-lawyer'][1]")).click();
+		case "Find People":
+			common.clickFindPeopleTitle();
 			break;
 		case "Locations":
-			driver.findElement(By.xpath("//a[@href='/en/locations'][1]")).click();
+			common.clickLocationsTitle();
 			break;
 		case "Insights":
-			driver.findElement(By.xpath("//a[@href='/en/insights'][1]")).click();
+			common.clickInsightTitle();
 			break;
 		case "Careers":
-			driver.findElement(By.xpath("//a[@href='/en/careers'][1]")).click();
+			common.clickCareersTitle();
 			break;	
+		}
+	}
+	
+	@Given("^hovers over \"([^\"]*)\" from the primary navigation$")
+	public void hovers_over_from_the_primary_navigation(String title) throws Throwable {
+		common = new CommonPOM(driver);
+		switch(title){
+		case "About Us":			
+			common.mouseOverAboutUsTitle();
+			break;
+		case "Client Services":
+			common.mouseOverClientServicesTitle();
+			break;			
+		case "Sectors":
+			common.mouseOverSectorsTitle();
+			break;			
+		case "Find People":	
+			common.mouseOverFindPeopleTitle();
+			break;
+		case "Locations":
+			common.mouseOverLocationsTitle();
+			break;			
+		case "Insights":
+			common.mouseOverInsightTitle();
+			break;			
+		case "Careers":
+			common.mouseOverCareersTitle();
+			break;
 		}
 	}
 	
@@ -147,6 +210,7 @@ public class SD_Common extends AbstractPageStepDefinition{
 		driver.findElement(By.xpath("/html/body/nav/div/div[6]/ul[3]/li/a")).click();
 	}
 	
+
 
 
 
