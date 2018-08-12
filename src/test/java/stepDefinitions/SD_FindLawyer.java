@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import cucumber.api.java.en.Given;
+import junit.framework.Assert;
 import pageObjects.FindLawyerPOM;
 
 public class SD_FindLawyer extends AbstractPageStepDefinition{
@@ -20,17 +21,15 @@ public class SD_FindLawyer extends AbstractPageStepDefinition{
 	
 	@Given("^asserts all returned profiles names contain the word \"([^\"]*)\"$")
 	public void asserts_all_returned_profiles_names_contain_the_word(String arg1) throws Throwable {
-		List<WebElement> myList=driver.findElements(By.className("listCta__item listCta__item--bgGrey"));
-		List<String> all_elements_text=new ArrayList<>();
-		
-		for(int i=0; i<myList.size(); i++){
-
-	        //loading text of each element in to array all_elements_text
-	        all_elements_text.add(myList.get(i).getText());
-
-	        //to print directly
-	        System.out.println(myList.get(i).getText());
+		List<WebElement> returnProfile = driver.findElements(By.cssSelector("span[class='listCta__subtitle listCta__subtitle--top ellipsis']"));	
+		int searchResults = returnProfile.size();
+		System.out.println(searchResults);
+		for (int i = 0; i < searchResults; i++) {
+			if (returnProfile == null){
+				System.out.println(returnProfile);
+			}
 		}
+		
 	}
 	
 	@Given("^clicks on the \"([^\"]*)\" from the Team Selector$")
