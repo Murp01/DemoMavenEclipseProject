@@ -2,15 +2,15 @@ package stepDefinitions;
 
 
 
-import java.util.ArrayList;
+
 import java.util.List;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import cucumber.api.java.en.Given;
-import junit.framework.Assert;
 import pageObjects.FindLawyerPOM;
 
 public class SD_FindLawyer extends AbstractPageStepDefinition{
@@ -21,15 +21,19 @@ public class SD_FindLawyer extends AbstractPageStepDefinition{
 	
 	@Given("^asserts all returned profiles names contain the word \"([^\"]*)\"$")
 	public void asserts_all_returned_profiles_names_contain_the_word(String arg1) throws Throwable {
-		List<WebElement> returnProfile = driver.findElements(By.cssSelector("span[class='listCta__subtitle listCta__subtitle--top ellipsis']"));	
-		int searchResults = returnProfile.size();
-		System.out.println(searchResults);
-		for (int i = 0; i < searchResults; i++) {
-			if (returnProfile == null){
-				System.out.println(returnProfile);
+		//also need to check if there is a load more button
+		List<WebElement> returnProfile = driver.findElements(By.cssSelector("span[class='listCta__subtitle listCta__subtitle--top ellipsis']"));
+		if(returnProfile.size() >0){
+			for (int i = 0; i <returnProfile.size(); i++){			
+				if(returnProfile.get(i).isDisplayed()==true){	
+					System.out.println(returnProfile.get(i).getText());
+					Assert.assertTrue(returnProfile.get(i).getText().contains(arg1));	
+				}
 			}
 		}
-		
+		else{
+			System.out.println("There are no names that match the search term " + arg1 + ".");
+		}
 	}
 	
 	@Given("^clicks on the \"([^\"]*)\" from the Team Selector$")
@@ -49,7 +53,8 @@ public class SD_FindLawyer extends AbstractPageStepDefinition{
 	@Given("^Types \"([^\"]*)\" into the name input field$")
 	public void types_into_the_name_input_field(String names) throws Throwable {
 		FindLawyerPOM findLawyer = new FindLawyerPOM(driver);
-		findLawyer.TypeInInputName(names);	
+		findLawyer.TypeInInputName(names);
+		Thread.sleep(5000);
 	}
 	
 
