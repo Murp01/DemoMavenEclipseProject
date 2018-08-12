@@ -2,9 +2,10 @@ package stepDefinitions;
 
 
 
-import java.util.ArrayList;
+
 import java.util.List;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,16 +21,22 @@ public class SD_FindLawyer extends AbstractPageStepDefinition{
 	
 	@Given("^asserts all returned profiles names contain the word \"([^\"]*)\"$")
 	public void asserts_all_returned_profiles_names_contain_the_word(String arg1) throws Throwable {
-		List<WebElement> myList=driver.findElements(By.className("listCta__item listCta__item--bgGrey"));
-		List<String> all_elements_text=new ArrayList<>();
-		
-		for(int i=0; i<myList.size(); i++){
-
-	        //loading text of each element in to array all_elements_text
-	        all_elements_text.add(myList.get(i).getText());
-
-	        //to print directly
-	        System.out.println(myList.get(i).getText());
+		while(driver.findElement(By.xpath("//span[@class='ctaLoadMore__text']")).isDisplayed()){
+			driver.findElement(By.xpath("//span[@class='ctaLoadMore__text']")).click();
+			Thread.sleep(5000);
+			//finds words that end and start with ian but fails if ian is in the middle of a word e.g bertrand andriani
+		}
+		List<WebElement> returnProfile = driver.findElements(By.cssSelector("span[class='listCta__subtitle listCta__subtitle--top ellipsis']"));
+		if(returnProfile.size() >0){
+			for (int i = 0; i <returnProfile.size(); i++){			
+				if(returnProfile.get(i).isDisplayed()==true){	
+					System.out.println(returnProfile.get(i).getText());
+					Assert.assertTrue(returnProfile.get(i).getText().contains(arg1));	
+				}
+			}
+		}
+		else{
+			System.out.println("There are no names that match the search term " + arg1 + ".");
 		}
 	}
 	
@@ -50,7 +57,8 @@ public class SD_FindLawyer extends AbstractPageStepDefinition{
 	@Given("^Types \"([^\"]*)\" into the name input field$")
 	public void types_into_the_name_input_field(String names) throws Throwable {
 		FindLawyerPOM findLawyer = new FindLawyerPOM(driver);
-		findLawyer.TypeInInputName(names);	
+		findLawyer.TypeInInputName(names);
+		Thread.sleep(5000);
 	}
 	
 
