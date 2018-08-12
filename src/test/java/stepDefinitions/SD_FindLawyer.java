@@ -21,7 +21,11 @@ public class SD_FindLawyer extends AbstractPageStepDefinition{
 	
 	@Given("^asserts all returned profiles names contain the word \"([^\"]*)\"$")
 	public void asserts_all_returned_profiles_names_contain_the_word(String arg1) throws Throwable {
-		//also need to check if there is a load more button
+		while(driver.findElement(By.xpath("//span[@class='ctaLoadMore__text']")).isDisplayed()){
+			driver.findElement(By.xpath("//span[@class='ctaLoadMore__text']")).click();
+			Thread.sleep(5000);
+			//finds words that end and start with ian but fails if ian is in the middle of a word e.g bertrand andriani
+		}
 		List<WebElement> returnProfile = driver.findElements(By.cssSelector("span[class='listCta__subtitle listCta__subtitle--top ellipsis']"));
 		if(returnProfile.size() >0){
 			for (int i = 0; i <returnProfile.size(); i++){			
