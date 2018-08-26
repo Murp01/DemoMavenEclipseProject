@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import pageObjects.FindLawyerPOM;
 
 public class SD_FindLawyer extends AbstractPageStepDefinition{
@@ -18,26 +19,35 @@ public class SD_FindLawyer extends AbstractPageStepDefinition{
 	WebDriver driver = getDriver();
 	FindLawyerPOM findLawyer;
 	
+	@Then("^asserts a message is displayed stating the search retrieved no results$")
+	public void asserts_a_message_is_displayed_stating_the_search_retrieved_no_results() throws Throwable {
+		FindLawyerPOM findLawyer = new FindLawyerPOM(driver);
+		findLawyer.assertNoReturnResultsText();
+	}
 	
 	@Given("^asserts all returned profiles names contain the word \"([^\"]*)\"$")
-	public void asserts_all_returned_profiles_names_contain_the_word(String arg1) throws Throwable {
-		while(driver.findElement(By.xpath("//span[@class='ctaLoadMore__text']")).isDisplayed()){
-			driver.findElement(By.xpath("//span[@class='ctaLoadMore__text']")).click();
-			Thread.sleep(5000);
-			//finds words that end and start with ian but fails if ian is in the middle of a word e.g bertrand andriani
-		}
+	public void asserts_all_returned_profiles_names_contain_the_word(String profileName) throws Throwable {
+		FindLawyerPOM findLawyer = new FindLawyerPOM(driver);
+		findLawyer.clickEachLoadMoreOccurance();
+		//findLawyer.assertAllReturnResultsContain(profileName);
 		List<WebElement> returnProfile = driver.findElements(By.cssSelector("span[class='listCta__subtitle listCta__subtitle--top ellipsis']"));
 		if(returnProfile.size() >0){
 			for (int i = 0; i <returnProfile.size(); i++){			
 				if(returnProfile.get(i).isDisplayed()==true){	
 					System.out.println(returnProfile.get(i).getText());
-					Assert.assertTrue(returnProfile.get(i).getText().contains(arg1));	
+					Assert.assertTrue(returnProfile.get(i).getText().contains(profileName));	
 				}
 			}
 		}
 		else{
-			System.out.println("There are no names that match the search term " + arg1 + ".");
+			System.out.println("There are no names that match the search term " + profileName + ".");
 		}
+	}
+	
+	@Given("^clicks on each occurance of the Load More button$")
+	public void clicks_on_each_occurance_of_the_Load_More_button() throws Throwable {
+		FindLawyerPOM findLawyer = new FindLawyerPOM(driver);
+		findLawyer.clickEachLoadMoreOccurance();
 	}
 	
 	@Given("^clicks on the \"([^\"]*)\" from the Team Selector$")
@@ -51,6 +61,22 @@ public class SD_FindLawyer extends AbstractPageStepDefinition{
 			findLawyer.clickSelLawyerDir();
 			break;
 		
+		}
+	}
+	
+	@Given("^then asserts all returned profiles names contain the word \"([^\"]*)\"$")
+	public void then_asserts_all_returned_profiles_names_contain_the_word(String profileName) throws Throwable {
+		List<WebElement> returnProfile = driver.findElements(By.cssSelector("span[class='listCta__subtitle listCta__subtitle--top ellipsis']"));
+		if(returnProfile.size() >0){
+			for (int i = 0; i <returnProfile.size(); i++){			
+				if(returnProfile.get(i).isDisplayed()==true){	
+					System.out.println(returnProfile.get(i).getText());
+					Assert.assertTrue(returnProfile.get(i).getText().contains(profileName));	
+				}
+			}
+		}
+		else{
+			System.out.println("There are no names that match the search term " + profileName + ".");
 		}
 	}
 	

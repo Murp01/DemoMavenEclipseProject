@@ -15,7 +15,6 @@ public class SD_AboutUs extends AbstractPageStepDefinition{
 	CommonPOM commonPOM; 
 	AboutUsPOM aboutUsPOM;
 	
-
 	
 	@Then("^asserts the accordion module is located on the page$")
 	public void asserts_the_accordion_module_is_located_on_the_page() throws Throwable {

@@ -17,6 +17,7 @@ public class SD_Common extends AbstractPageStepDefinition{
 	WebDriver driver = getDriver();
 	CommonPOM common; 
 	
+		
 	@Given("^the cookie policy banner appears$")
 	public void assert_the_cookie_policy_banner_appears() throws Throwable {
 		common = new CommonPOM(driver);
@@ -55,9 +56,24 @@ public class SD_Common extends AbstractPageStepDefinition{
 		
 	}
 	
+	@Given("^asserts the search results generate below the site search bar$")
+	public void asserts_the_search_results_generate_below_the_site_search_bar() throws Throwable {
+
+	}
+	
+	@Given("^asserts the site search bar appears$")
+	public void asserts_the_site_search_bar_appears() throws Throwable {
+	    
+	}
+	
 	@Then("^Assert that the url contains \"([^\"]*)\"$")
 	public void assert_the_url_contains(String title) throws Throwable {
 		Assert.assertTrue(driver.getTitle().contains(title));
+	}
+	
+	@Then("^asserts the \"([^\"]*)\" page will open$")
+	public void asserts_the_page_will_open(String arg1) throws Throwable {
+
 	}
 	
 	@When("^clicking on the print button$")
@@ -110,6 +126,12 @@ public class SD_Common extends AbstractPageStepDefinition{
 		common.clickSearchToggle();
 	}
 	
+	@Given("^clicks on the the site search magnify button$")
+	public void clicks_on_the_the_site_search_magnify_button() throws Throwable {
+		common = new CommonPOM(driver);
+		common.clickSearchMagnifyIcon();
+	}
+	
 	@When("^clicks on the \"([^\"]*)\" link in the primary navigation$")
 	public void clicks_on_the_link_in_the_primary_navigation(String link) throws Throwable {
 		CommonPOM common = new CommonPOM(driver);
@@ -138,6 +160,11 @@ public class SD_Common extends AbstractPageStepDefinition{
 			common.clickCareersTitle();
 			break;	
 		}
+	}
+	
+	@When("^clicks on the \"([^\"]*)\" search result$")
+	public void clicks_on_the_search_result(String arg1) throws Throwable {
+
 	}
 	
 	@Given("^hovers over \"([^\"]*)\" from the primary navigation$")
@@ -210,8 +237,11 @@ public class SD_Common extends AbstractPageStepDefinition{
 		driver.findElement(By.xpath("/html/body/nav/div/div[6]/ul[3]/li/a")).click();
 	}
 	
-
-
-
+	@Given("^types \"([^\"]*)\" into the site search bar$")
+	public void types_into_the_site_search_bar(String searchTerm) throws Throwable {
+		common = new CommonPOM(driver);
+		common.sendKeysSearchInput(searchTerm);
+	}
+	
 
 }

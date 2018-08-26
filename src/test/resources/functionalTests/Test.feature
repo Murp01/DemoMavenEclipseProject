@@ -1,23 +1,20 @@
 Feature: Test feature
 Description:
 
-@Trythis
-Scenario: Find people dropdown search
+@Trythis	
+Scenario: Site search bar
 	Given the user is on the homepage
-	And clicks on the "Find People" link in the primary navigation
-	And Types "ian" into the name input field
-	And asserts all returned profiles names contain the word "ian"
-	
-	
-Scenario: Ensure legal text appears for lawyer based in Tokyo
-	Given the user is on the homepage
-	And clicks on the "Find People" link in the primary navigation
-	And Types "Paul" into the name input field
-	
-Scenario: Ensure search failure message appears when search term does not return a profile
-	Given the user is on the homepage
-	And clicks on the "Find People" link in the primary navigation
-	And Types "akakupapa" into the name input field
+	And clicks on the the site search magnify button
+	And asserts the site search bar appears
+	And types "Paul" into the site search bar
+	And asserts the search results generate below the site search bar
+	When clicks on the "" search result
+	Then asserts the "" page will open
+
+
+
+
+
 
 
 

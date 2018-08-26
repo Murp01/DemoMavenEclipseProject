@@ -23,6 +23,8 @@ public class CommonPOM extends AbstractPageStepDefinition {
 	WebDriver driver = getDriver();
 	Actions action = new Actions(driver);
 
+	@FindBy(how = How.XPATH, xpath = "//span[@class='icon-search']")
+	private WebElement button_SearchMagnify;
 	
 	@FindBy(how = How.XPATH, xpath = "//div[@class='header__navDesktop']/ul/li/a[@href='/en/about-us']")
 	private WebElement header_AboutUs;
@@ -142,6 +144,10 @@ public class CommonPOM extends AbstractPageStepDefinition {
 		header_SearchToggle.click();
 	}
 	
+	public void clickSearchMagnifyIcon(){
+		button_SearchMagnify.click();
+	}
+	
 	public void clickSectorsTitle(){
 		header_Sectors.click();
 	}
@@ -176,8 +182,8 @@ public class CommonPOM extends AbstractPageStepDefinition {
 		action.moveToElement(header_Sectors).perform();
 	}
 	
-	public void sendKeysSearchInput(){
-		header_SearchInput.sendKeys();
+	public void sendKeysSearchInput(String searchTerm){
+		header_SearchInput.sendKeys(searchTerm);
 	}
 	
 
