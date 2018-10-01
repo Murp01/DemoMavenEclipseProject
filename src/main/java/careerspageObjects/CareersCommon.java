@@ -23,6 +23,7 @@ public class CareersCommon extends AbstractPageStepDefinition{
 	
 	WebDriver driver = getDriver();
 	
+	
 	@FindBy(how = How.XPATH, xpath = "//a[@href='/en/early-careers/our-opportunities']")
 	private WebElement EarlyCareersToMyOpportunities;
 	
